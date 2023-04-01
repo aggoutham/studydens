@@ -1,3 +1,15 @@
-.sidebar-button {
+.sidebar-main {
+    background-color: #041e42;
+}
+
+.w3-button-den{
+    padding: 0%;
+    width: 100%;
+    color: white!important;
+}
+
+.w3-button:hover{
     color: black;
+    background-color: bisque!important;
+    width: 100%;
 }

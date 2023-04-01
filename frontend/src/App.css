@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #041e42;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,4 +44,10 @@
 
 .auth-flow {
 
+}
+
+.map-section {
+  min-height: 1000px;
+  border: 10px solid;
+  
 }

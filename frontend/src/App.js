@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Sidebar from './sidebar/Sidebar';
 import TrackerMap from './map/TrackerMap';
+import SearchBar from './searchbar/SearchBar';
 
 class App extends React.Component {
 
@@ -31,9 +32,17 @@ class App extends React.Component {
 
   handleMainContents = () => {
 
-    var defaulthome = (<div className='map-section'>
-                        {/* <TrackerMap></TrackerMap> */}
-                      </div>);
+    var defaulthome = (
+        <div>
+          <div>
+            <SearchBar></SearchBar>
+          </div>
+          <div className='map-section'>
+            {/* <TrackerMap></TrackerMap> */}
+          </div>
+        </div>
+    );
+
     var status = this.state.sideReturnStatus;
 
     if (status === "home") {
@@ -78,7 +87,7 @@ class App extends React.Component {
             </header>
           </div>
         </div>
-        <div className='divider'></div>
+        {/* <div className='divider'></div> */}
         {pagebody}
       </div>
       

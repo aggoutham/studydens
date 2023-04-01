@@ -24,13 +24,53 @@ class App extends React.Component {
     return(<p>SideBar</p>);
   };
 
+  modifyPage = (data) => {
+    this.setState({sideReturnStatus: data});
+    return;
+  };
+
+  handleMainContents = () => {
+
+    var defaulthome = (<div className='map-section'>
+                        {/* <TrackerMap></TrackerMap> */}
+                      </div>);
+    var status = this.state.sideReturnStatus;
+
+    if (status === "home") {
+      return defaulthome;
+    }
+    else if(status === "friends"){
+      return (<div>Friends</div>);
+    }
+    else if(status === "saved"){
+      return (<div>Saved</div>);
+    }
+    else if(status === "leaderboard"){
+      return (<div>Leaderboard</div>);
+    }
+    else if(status === "see_all"){
+      return (<div>See All</div>);
+    }
+    else if(status === "sign_out"){
+      return (<div>Sign Out</div>);
+    }
+    else{
+      return defaulthome;
+    }
+  };
+
+
   render() {
+    console.log("Rendering App....");
+
+    var pagebody;
+    pagebody = this.handleMainContents();
 
     return (
       <div className='App'>
         <div>
           <div className="sidebar-section">
-            <Sidebar signedInUser={this.state.signedInUser}></Sidebar>
+            <Sidebar sideCallBack={this.modifyPage}></Sidebar>
           </div>
           <div>
             <header className="App-header">
@@ -39,9 +79,7 @@ class App extends React.Component {
           </div>
         </div>
         <div className='divider'></div>
-        <div className='map-section'>
-          {/* <TrackerMap></TrackerMap> */}
-        </div>
+        {pagebody}
       </div>
       
     );

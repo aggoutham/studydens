@@ -4,7 +4,6 @@ import './Sidebar.css';
 class Sidebar extends React.Component {
 
     w3_close = () => {
-        console.log("Closing Sidebar");
         document.getElementById("mySidebar").style.display = "none";
     }
 
@@ -12,17 +11,47 @@ class Sidebar extends React.Component {
         document.getElementById("mySidebar").style.display = "block";
     }
 
+    home_click = (e) => {
+        document.getElementById("mySidebar").style.display = "none";
+        this.props.sideCallBack("home");
+    }
+
+    friends_click = (e) => {
+        document.getElementById("mySidebar").style.display = "none";
+        this.props.sideCallBack("friends");
+    }
+
+    saved_click = (e) => {
+        document.getElementById("mySidebar").style.display = "none";
+        this.props.sideCallBack("saved");
+    }
+
+    leader_click = (e) => {
+        document.getElementById("mySidebar").style.display = "none";
+        this.props.sideCallBack("leaderboard");
+    }
+
+    see_click = (e) => {
+        document.getElementById("mySidebar").style.display = "none";
+        this.props.sideCallBack("see_all");
+    }
+
+    sign_click = (e) => {
+        document.getElementById("mySidebar").style.display = "none";
+        this.props.sideCallBack("sign_out");
+    }
+
     render (){
         return(
             <div>
                 <div className="bar-len w3-sidebar w3-bar-block w3-collapse w3-card" id="mySidebar">
                     <button className="menu-item" onClick={this.w3_close}>MENU</button>
-                    <button className="bar-item" onClick={this.w3_close}>Home</button>
-                    <button className="bar-item" onClick={this.w3_close}>Friends</button>
-                    <button className="bar-item" onClick={this.w3_close}>Saved</button>
-                    <button className="bar-item" onClick={this.w3_close}>Leaderboard</button>
-                    <button className="bar-item" onClick={this.w3_close}>See All</button>
-                    <button className="bar-item" onClick={this.w3_close}>Sign Out</button>
+                    <button className="bar-item" onClick={this.home_click}>Home</button>
+                    <button className="bar-item" onClick={this.friends_click}>Friends</button>
+                    <button className="bar-item" onClick={this.saved_click}>Saved</button>
+                    <button className="bar-item" onClick={this.leader_click}>Leaderboard</button>
+                    <button className="bar-item" onClick={this.see_click}>See All</button>
+                    <button className="bar-item" onClick={this.sign_click}>Sign Out</button>
                 </div>
 
                 <div className="sidebar-main" >

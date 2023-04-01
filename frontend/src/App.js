@@ -26,41 +26,17 @@ class App extends React.Component {
 
   render() {
 
-    var auth_flow, student_id, sidebar;
-
-    if(this.state.loggedIn === true){
-      auth_flow = (<div>
-      </div>)
-    } else{
-      if(this.state.signUpForm === true){
-        auth_flow = this.signUp();
-      }
-      else{
-        auth_flow = this.loginForm();
-      }
-    }
-
-    if(this.state.loggedIn === true){
-      student_id = (<p className='right-button'>Hi, {this.state.signedInUser}!</p>);
-    }
-
-
     return (
-      <div>
-        <div className="sidebar-section">
-          <Sidebar signedInUser={this.state.signedInUser}></Sidebar>
-        </div>
-        <div className="App">
-          {auth_flow}
-        </div>
+      <div className='App'>
         <div>
-          {/* <button name="logout" className='right-button' onClick={this.handleLogout}>Log Out</button> */}
-          <header className="App-header">
-            <p>
-              STUDY DENS
-            </p>
-            {student_id}
-          </header>
+          <div className="sidebar-section">
+            <Sidebar signedInUser={this.state.signedInUser}></Sidebar>
+          </div>
+          <div>
+            <header className="App-header">
+                STUDY DENS
+            </header>
+          </div>
         </div>
         <div className='map-section'>
           <TrackerMap></TrackerMap>

@@ -1,5 +1,6 @@
+
 .App {
-  text-align: center;
+  font-family: 'Helvetica Neue', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif ;
 }
 
 .App-logo {
@@ -19,8 +20,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .App-link {
@@ -38,8 +40,9 @@
 
 .sidebar-section {
   width:15%;
-  height:auto;
   display:inline-block;
+  position: fixed;
+  font-weight: bolder;
 }
 
 .auth-flow {
@@ -49,5 +52,13 @@
 .map-section {
   min-height: 1000px;
   border: 10px solid;
-  
+
+}
+
+.den-button {
+  background-color: lightgrey;
+  border-radius: 2.5px;
+  border: 0;
+  padding: 0;
+  margin: 0;
 }

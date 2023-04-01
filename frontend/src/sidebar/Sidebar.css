@@ -1,15 +1,70 @@
 .sidebar-main {
     background-color: #041e42;
+    height:10px;
+    font-size: 18px;
 }
 
 .w3-button-den{
     padding: 0%;
-    width: 100%;
     color: white!important;
 }
 
+.w3-button{
+    padding-left: 16px!important;;
+    padding-right: 16px!important;
+    padding-top: 3px!important;
+    padding-bottom: 3px!important;
+}
+
 .w3-button:hover{
-    color: black;
-    background-color: bisque!important;
+    padding-left: 16px!important;;
+    padding-right: 16px!important;
+    padding-top: 3px!important;
+    padding-bottom: 3px!important;
+}
+
+
+.large{
+    font-size: 20px!important;
+}
+
+.bar-len{
+    max-width: 120px;
+}
+
+.menu-item{
+    color: white;
     width: 100%;
+    padding-top: 9%;
+    padding-bottom: 9%;
+    font-size: 12px;
+    text-align: left;
+    margin: 0;
+    border: 0;
+
+
+}
+
+.bar-item{
+    width: 100%;
+    color: white;
+    padding-top: 7.5%;
+    padding-bottom:7.5%;
+    font-size: 12px;
+    text-align: left;
+    margin: 0;
+    border: 0;
+}
+
+.bar-item, .bar-len {
+    background-color: #041e42!important;
+}
+
+
+.menu-item {
+    background-color: #041e42;
+}
+
+.w3-sidebar{
+    height: auto!important;
 }

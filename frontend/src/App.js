@@ -8,7 +8,7 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {loggedIn: true, signUpForm: false, signedInUser: "", showsidebar: false};
+    this.state = {loggedIn: true, signUpForm: false, signedInUser: "", showsidebar: true};
   }
 
   signUp = () => {
@@ -51,22 +51,21 @@ class App extends React.Component {
 
     return (
       <div>
+        <div className="sidebar-section">
+          {sidebar}
+        </div>
+        <div className="App">
+          {auth_flow}
+        </div>
         <div>
+          <button name="logout" className='right-button' onClick={this.handleLogout}>Log Out</button>
           <header className="App-header">
             <p>
               STUDY DENS
             </p>
             {student_id}
           </header>
-          <button name="logout" className='right-button' onClick={this.handleLogout}>Log Out</button>
-
         </div>
-      <div className="App">
-        {sidebar}
-      </div>
-      <div className="App">
-        {auth_flow}
-      </div>
       </div>
       
     );

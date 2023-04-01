@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './SearchBar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch, faFilter } from '@fortawesome/free-solid-svg-icons'
 
 class SearchBar extends React.Component {
 
@@ -24,8 +26,11 @@ class SearchBar extends React.Component {
     };
 
     getFilters = () => {
-
-        return (<div>Helloooooooo</div>)
+        var filter_area = null;
+        if(this.state.filter === true){
+            filter_area = ((<div className='filter-area'>Helloooooooo</div>));
+        } 
+        return filter_area;
     }
 
     render (){
@@ -35,13 +40,11 @@ class SearchBar extends React.Component {
                     <div className="wrap">
                         <div className="search">
                             <input type="text" className="searchTerm" placeholder="Try Exams, Pattee, AirPlay etc."></input>
-                            <button type="submit" className="searchButton" onClick={this.handle_search}>GO!</button>
+                            <button type="submit" className="searchButton" onClick={this.handle_search}><FontAwesomeIcon icon={faSearch} color="white" size="lg" /></button>
                         </div>
                     </div>
-                    <button type="submit" className='filterButton' onClick={this.openfilters}>=</button>
+                    <button type="submit" className='filterButton' onClick={this.openfilters}><FontAwesomeIcon icon={faFilter} size="lg" /></button>
                     {filter_area}
-                    <div className='filter-area'>
-                    </div>
                 </div>);
     };
 };

@@ -43,6 +43,7 @@
   display:inline-block;
   position: fixed;
   font-weight: bolder;
+  z-index: 1000000000000000;
 }
 
 .auth-flow {
@@ -61,4 +62,11 @@
   border: 0;
   padding: 0;
   margin: 0;
+}
+
+
+.divider{
+  width:20%;
+  height:auto;
+  display:inline-block;
 }

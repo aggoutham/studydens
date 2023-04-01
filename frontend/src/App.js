@@ -9,7 +9,7 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {loggedIn: true, signUpForm: false, signedInUser: ""};
+    this.state = {loggedIn: true, signUpForm: false, signedInUser: "", sideReturnStatus: "home"};
   }
 
   signUp = () => {
@@ -38,8 +38,9 @@ class App extends React.Component {
             </header>
           </div>
         </div>
+        <div className='divider'></div>
         <div className='map-section'>
-          <TrackerMap></TrackerMap>
+          {/* <TrackerMap></TrackerMap> */}
         </div>
       </div>
       

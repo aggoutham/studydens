@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './SearchBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faFilter } from '@fortawesome/free-solid-svg-icons'
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 class SearchBar extends React.Component {
 
@@ -26,11 +28,21 @@ class SearchBar extends React.Component {
     };
 
     getFilters = () => {
-        var filter_area = null;
-        if(this.state.filter === true){
-            filter_area = ((<div className='filter-area'>Helloooooooo</div>));
-        } 
-        return filter_area;
+        
+        var dropdownContents = (<Dropdown.Menu className='filter-area' id='goutham'>
+                                    <Dropdown.Item className='dropdown-items'>Indoor</Dropdown.Item>
+                                    <Dropdown.Item className='dropdown-items'>Capacity</Dropdown.Item>
+                                    <Dropdown.Item className='dropdown-items'>Self Study</Dropdown.Item>
+                                    <Dropdown.Item className='dropdown-items'>Food Available</Dropdown.Item>
+                                    <Dropdown.Item className='dropdown-items'>Rating</Dropdown.Item>
+                                </Dropdown.Menu>);
+
+        return (<Dropdown className='dropdown'>
+                    <Dropdown.Toggle className='filter-button' variant="success" id="dropdown-autoclose-outside" data-toggle="goutham">
+                        <FontAwesomeIcon icon={faFilter} size="lg"/>
+                    </Dropdown.Toggle>
+                    {dropdownContents}
+                </Dropdown>);
     }
 
     render (){
@@ -43,7 +55,8 @@ class SearchBar extends React.Component {
                             <button type="submit" className="searchButton" onClick={this.handle_search}><FontAwesomeIcon icon={faSearch} color="white" size="lg" /></button>
                         </div>
                     </div>
-                    <button type="submit" className='filterButton' onClick={this.openfilters}><FontAwesomeIcon icon={faFilter} size="lg" /></button>
+                    {/* <button type="submit" className='filterButton' onClick={this.openfilters}><FontAwesomeIcon icon={faFilter} size="lg" /></button> */}
+                    {/* <div className='bottom-divider'></div> */}
                     {filter_area}
                 </div>);
     };

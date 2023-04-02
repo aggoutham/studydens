@@ -1,18 +1,28 @@
 import React from 'react';
 import './ListView.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes, faStar, faUser, faLocationDot, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faStar, faUser, faLocationDot, faChevronLeft, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 //import './window-close-solid.svg';
 
-/*
-TODO:
+class LikeButton extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = { valid: Boolean(Math.random() < 0.5) }
+    }
 
- - Collapsable Building names
-*/
+    render() {
+        return (
+            <FontAwesomeIcon icon={faHeart} style={{
+                color: this.state.valid ? 'pink' : 'darkgray',
+                ...this.props.style
+            }} onClick={() => this.setState({ valid: !this.state.valid })} />
+        )
+    }
+}
 
 class CenterCard extends React.Component {
     constructor(props) {
@@ -46,9 +56,11 @@ class CenterCard extends React.Component {
 
         return (<React.Fragment>
             <div className="center-card">
-                <img src={"https://cse543-web-security.aplayerscreed.com/backend/images/" + this.props.room.images[this.props.room.images.length > 1 ? 1 : 0]} alt="" className="center-img" />
+                <img src={"https://cse543-web-security.aplayerscreed.com/backend/images/" + this.props.room.images[(this.props.room.images.length > 1 ? 1 : 0)]} alt="" className="center-img" />
                 <div className='center-title'>
-                    {this.props.room.name} - {this.props.room.location} <div>{stars}</div>
+                    {this.props.room.name} - {this.props.room.location} <div>{stars} <LikeButton style={{
+                        marginLeft: '6em'
+                    }} /></div>
                 </div>
 
                 <div className='center-desc'>

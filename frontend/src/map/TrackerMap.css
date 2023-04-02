@@ -1,0 +1,35 @@
+.gm-style .gm-style-iw {
+    font-weight: 800 !important;
+}
+
+.gm-style-iw {
+    background-color: rgb(237, 28, 36);
+    border: 1px solid rgba(72, 181, 233, 0.6);
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+    color: rgb(255, 255, 255) !important;
+    font-family: gothambook;
+    text-align: center;
+    top: 15px !important;
+    width: 150px !important;
+}
+
+.gm-style .gm-style-iw-c {
+    max-width: 500px !important;
+    max-height: 326px !important;
+    min-width: 0px !important;
+    position: absolute;
+    box-sizing: border-box;
+    padding: 6px !important;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -100%);
+    border-radius: 8px;
+    box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.3);
+}
+
+p {
+    margin-block-start: 0 !important;
+    margin-block-end: 0 !important;
+}

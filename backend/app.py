@@ -151,3 +151,60 @@ def get_user_leaderboard():
         specific_data = [d for d in data if d["id"] in u["friends"] or d["id"] == u["id"]]
         return jsonify(sorted([d for d in data if d["id"] in u["friends"] or d["id"] == u["id"]], key=lambda x: x["stars"], reverse=True))
     return jsonify([])
+
+
+'''
+User add favorite PUT API
+request payload-
+{
+    "user_id": int,
+    "location_id": int,
+    "save": bool
+}
+'''
+@app.route("/user/addfavorite", methods=["PUT"])
+def add_user_favorite():
+    data = file.get_users_data()
+    request_payload = request.get_json()
+    index = -1
+    for i in range(len(data)):
+        if request_payload["user_id"] == data[i]["id"]:
+            index = i
+            break
+    if index != -1:
+        if request_payload["save"]:
+            if request_payload["location_id"] not in data[index]["favorites"]:
+                data[index]["favorites"].append(request_payload["location_id"])
+                file.set_users_data(data)
+        else:
+            if request_payload["location_id"] in data[index]["favorites"]:
+                data[index]["favorites"].remove(request_payload["location_id"])
+                file.set_users_data(data)
+        return "", 204
+    return "", 406
+
+'''
+Edit location for adding a rating and a review PUT API
+request payload-
+{
+    "id": int,
+    "rating": float,
+    "review": string
+}
+'''
+@app.route("/location/addreviewrating", methods=["PUT"])
+def edit_location():
+    data = file.get_locations_data()
+    request_payload = request.get_json()
+    index = -1
+    for i in range(len(data)):
+        if request_payload["id"] == data[i]["id"]:
+            index = i
+            break
+    if index != -1:
+        data[index]["reviews"].append(request_payload["review"])
+        data[index]["rating"] = round(((data[index]["rating"] + request_payload["rating"]) / data[index]["rating_count"]) * 2) / 2
+        data[index]["rating_count"] += 1
+        file.set_locations_data(data)
+        return "", 204
+    return "", 406

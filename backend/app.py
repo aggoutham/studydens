@@ -1,14 +1,18 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS, cross_origin
 import file
 import recommender
 
 app = Flask(__name__)
+cors = CORS(app)
+app.config["CORS_HEADERS"] = "Content-Type"
 
 '''
 See all GET API
 Return all locations
 '''
 @app.route("/locations")
+@cross_origin()
 def get_locations():
     return jsonify(file.get_locations_data())
 
@@ -16,6 +20,7 @@ def get_locations():
 Not needed for now
 '''
 @app.route("/users")
+@cross_origin()
 def get_users():
     return jsonify(file.get_users_data())
 
@@ -23,6 +28,7 @@ def get_users():
 Not needed for now
 '''
 @app.route("/locations/add", methods=["POST"])
+@cross_origin()
 def add_location():
     data = file.get_locations_data()
     data.append(request.get_json())
@@ -33,6 +39,7 @@ def add_location():
 Not needed for now
 '''
 @app.route("/users/add", methods=["POST"])
+@cross_origin()
 def add_user():
     data = file.get_users_data()
     data.append(request.get_json())
@@ -56,6 +63,7 @@ request payload-
 }
 '''
 @app.route("/locations/searchfilter")
+@cross_origin()
 def get_specific_locations():
     data = file.get_locations_data()
     request_payload = request.get_json()
@@ -83,6 +91,7 @@ request payload-
 }
 '''
 @app.route("/user/favorites")
+@cross_origin()
 def get_favorites_locations():
     location_data = file.get_locations_data()
     user_data = file.get_users_data()
@@ -104,6 +113,7 @@ request payload-
 }
 '''
 @app.route("/user/progress")
+@cross_origin()
 def get_user_progress():
     data = file.get_users_data()
     request_payload = request.get_json()
@@ -120,6 +130,7 @@ request payload-
 }
 '''
 @app.route("/user/friends")
+@cross_origin()
 def get_user_friends():
     data = file.get_users_data()
     request_payload = request.get_json()
@@ -140,6 +151,7 @@ request payload-
 }
 '''
 @app.route("/user/leaderboard")
+@cross_origin()
 def get_user_leaderboard():
     data = file.get_users_data()
     request_payload = request.get_json()
@@ -164,6 +176,7 @@ request payload-
 }
 '''
 @app.route("/user/addfavorite", methods=["PUT"])
+@cross_origin()
 def add_user_favorite():
     data = file.get_users_data()
     request_payload = request.get_json()
@@ -194,6 +207,7 @@ request payload-
 }
 '''
 @app.route("/location/addreviewrating", methods=["PUT"])
+@cross_origin()
 def edit_location():
     data = file.get_locations_data()
     request_payload = request.get_json()
@@ -218,6 +232,7 @@ request payload-
 }
 '''
 @app.route("/location/new")
+@cross_origin()
 def get_new_location():
     data = file.get_locations_data()
     request_payload = request.get_json()

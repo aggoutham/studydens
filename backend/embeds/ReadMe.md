@@ -1,0 +1,1 @@
+This is GloVe word2vec model.

@@ -107,3 +107,5 @@ dist
 backend/__pycache__
 
 package-lock.json
+
+backend/embeds/gensim_glove_vectors.txt

@@ -1,0 +1,138 @@
+.bldg-card {
+    display: flex;
+    flex-direction: column;
+    /*padding: 0.5em;*/
+    margin: 0.25rem;
+    border: 1px solid rgba(0, 0, 0, .125)
+}
+
+.bldg-card>div:first-child {
+    padding: 0.5rem;
+    font-weight: bold;
+    font-size: small;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    background-color: #041e42;
+    color: white;
+}
+
+
+
+.room-img {
+    width: auto;
+    height: 100%;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    border-top-left-radius: calc(0.5rem - 1px);
+    border-top-right-radius: calc(0.5rem - 1px);
+
+}
+
+.card-body {
+    padding: 1.5em 1em 1em 1em;
+    font-weight: bold;
+    font-size: large;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.room-card {
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    /*padding: 0.5em;*/
+    margin: 0.4em;
+    border: 1px solid rgba(0, 0, 0, .125);
+    width: 35%;
+}
+
+.room-card>div {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 0.25rem;
+}
+
+.room-container {
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+
+}
+
+.center-card {
+    opacity: 100%;
+    visibility: visible;
+    z-index: 2;
+    position: fixed;
+    height: 100%;
+    background-color: white;
+    left: 15%;
+    top: 2%;
+    width: 70%;
+    height: 60%;
+    box-shadow: 0px 0px 2px 1px black;
+}
+
+.center-card-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 60%;
+    background-color: black;
+}
+
+.center-img {
+    width: 100%;
+    height: 20%;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+.center-title {
+    margin: 0.5em;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.close-icon {
+    position: fixed;
+    width: 5%;
+    color: white;
+    height: 5%;
+    top: 5px;
+    left: 93%;
+}
+
+.close-icon:hover {
+    color: gray;
+}
+
+.center-desc {
+    color: rgb(43, 43, 43);
+    margin: 1em 1.5em 1em 1.5em;
+}
+
+.stars-nocolor {
+    display: inline;
+    color: darkgray;
+}
+
+.stars-color {
+    color: goldenrod;
+}
+
+.center-fields {
+    margin: 1em;
+}
+
+.review-box {
+    display: flex;
+    flex-direction: row;
+    margin: 1em;
+}
+
+.review-box>div {
+    margin-left: 1em;
+}

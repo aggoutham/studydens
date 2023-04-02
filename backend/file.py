@@ -9,7 +9,7 @@ def get_locations_data():
 
 def set_locations_data(data):
     with open(locations_file, "w") as outfile:
-        json.dump(data, outfile)
+        json.dump(data, outfile, indent=4)
 
 def get_users_data():
     with open(users_file, "r") as infile:
@@ -17,4 +17,4 @@ def get_users_data():
 
 def set_users_data(data):
     with open(users_file, "w") as outfile:
-        json.dump(data, outfile)
+        json.dump(data, outfile, indent=4)

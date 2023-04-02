@@ -63,8 +63,9 @@ class Progress extends React.Component {
         stories = arrStories.map(item => {
 
             return(<div className='mission-box'>
-                <div> <div  className='important-text2'>Goal :</div> {item.description}</div>
-                <div> <div  className='important-text2'>Reward :</div> {item.reward} stars</div>
+                <div> Goal : {item.description}</div>
+                <div> Reward : {item.reward} stars</div>
+                <button className='story-complete'>Complete Mission!</button>
             </div>)
 
         });

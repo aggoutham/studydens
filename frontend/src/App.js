@@ -6,6 +6,7 @@ import TrackerMap from './map/TrackerMap';
 import SearchBar from './searchbar/SearchBar';
 import Journey from './journey/Journey';
 import ListView from './list-view/ListView';
+import Friends from './friends/Friends';
 
 class App extends React.Component {
 
@@ -52,7 +53,7 @@ class App extends React.Component {
       return defaulthome;
     }
     else if (status === "friends") {
-      return (<div>Friends</div>);
+      return (<Friends />);
     }
     else if (status === "saved") {
       return (<div>Saved</div>);

@@ -14,10 +14,11 @@ class App extends React.Component {
 
   base_url = "https://cse543-web-security.aplayerscreed.com/backend/";
   coordinates = {
-        "l_latitude": 37.11,
-        "l_longitude": -79.41,
-        "h_latitude": 44.14,
-        "h_longitude": -75.22};
+    "l_latitude": 37.11,
+    "l_longitude": -79.41,
+    "h_latitude": 44.14,
+    "h_longitude": -75.22
+  };
 
   constructor(props) {
     super(props);
@@ -25,34 +26,34 @@ class App extends React.Component {
   }
 
   getData = (inputObj) => {
-  //   var data = {
-  //     "l_latitude": 37.11,
-  //     "l_longitude": -79.41,
-  //     "h_latitude": 44.14,
-  //     "h_longitude": -75.22
-  //     // "search": string,
-  //     // "type": string (indoor/outdoor),
-  //     // "capacity": int,
-  //     // "space": string (self/collaborative),
-  //     // "food_available": bool,
-  //     // "rating": float
-  // };
+    //   var data = {
+    //     "l_latitude": 37.11,
+    //     "l_longitude": -79.41,
+    //     "h_latitude": 44.14,
+    //     "h_longitude": -75.22
+    //     // "search": string,
+    //     // "type": string (indoor/outdoor),
+    //     // "capacity": int,
+    //     // "space": string (self/collaborative),
+    //     // "food_available": bool,
+    //     // "rating": float
+    // };
     console.log("Fetching Data");
-  const requestOptions = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': '*/*' },
-    body: JSON.stringify(inputObj),
-    mode: 'cors'
-  };
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': '*/*' },
+      body: JSON.stringify(inputObj),
+      mode: 'cors'
+    };
 
-  fetch(this.base_url + "locations/searchfilter", requestOptions)
-    .then(response => response.json())
-    .then((actualData) => {
-      console.log(actualData);
-      this.setState({data: actualData});
-    })
-    .catch((err) => {
-      console.log(err.message);
+    fetch(this.base_url + "locations/searchfilter", requestOptions)
+      .then(response => response.json())
+      .then((actualData) => {
+        console.log(actualData);
+        this.setState({ data: actualData });
+      })
+      .catch((err) => {
+        console.log(err.message);
       });
 
   };
@@ -95,7 +96,7 @@ class App extends React.Component {
         <div className='map-section'>
           {<TrackerMap mapCallBack={this.updateMapRequest}></TrackerMap>}
         </div>
-        <ListView></ListView>
+        {this.state.data.length != 0 && <ListView rooms={this.state.data}></ListView>}
       </div>
     );
 
@@ -128,8 +129,7 @@ class App extends React.Component {
     console.log("Rendering App....");
     console.log(JSON.stringify(this.coordinates));
     console.log(this.state.data);
-    if(this.state.data.length == 0){
-      console.log("Hello")
+    if (this.state.data.length == 0) {
       this.getData(this.coordinates);
     }
 

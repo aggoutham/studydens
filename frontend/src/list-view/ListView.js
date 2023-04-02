@@ -46,7 +46,7 @@ class CenterCard extends React.Component {
 
         return (<React.Fragment>
             <div className="center-card">
-                <img src="https://thumbs.dreamstime.com/b/library-computer-desk-20785064.jpg" alt="" className="center-img" />
+                <img src={"https://cse543-web-security.aplayerscreed.com/backend/images/" + this.props.room.images[this.props.room.images.length > 1 ? 1 : 0]} alt="" className="center-img" />
                 <div className='center-title'>
                     {this.props.room.name} - {this.props.room.location} <div>{stars}</div>
                 </div>
@@ -107,248 +107,40 @@ class CenterCard extends React.Component {
 class ListView extends React.Component {
     constructor(props) {
         super(props);
+        this.buildingRoomMap = {}
         this.state = {
             selected: false,
             selectedIndex: -1,
-            rooms: [{
-                "id": 0,
-                "name": "E128A",
-                "location": "Paterno",
-                "capacity": 4,
-                "times": {
-                    "open_time": "07:45",
-                    "close_time": "12:00",
-                    "days": [
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu"
-                    ]
-                },
-                "popular_times": [
-                    {
-                        "start_time": "10:00",
-                        "end_time": "16:00"
-                    },
-                    {
-                        "start_time": "18:00",
-                        "end_time": "21:00"
-                    }
-                ],
-                "type": "indoor",
-                "available_tech": [
-                    "Whiteboard",
-                    "Projector",
-                    "HDMI Cable"
-                ],
-                "space": "self",
-                "description": "Library room",
-                "food_available": false,
-                "rating": 4,
-                "reviews": [
-                    "A really nice isolated self-working space for people requiring quietude",
-                    "A well-lit room with good facilities"
-                ],
-                "images": [
-                    "E128A_1.png",
-                    "E128A_2.png",
-                    "E128A_3.png"
-                ],
-                "latitude": 40.79839451403231,
-                "longitude": -77.86572831321128
-            },
-            {
-                "id": 1,
-                "name": "E304",
-                "location": "Paterno",
-                "capacity": 16,
-                "times": {
-                    "open_time": "07:45",
-                    "close_time": "12:00",
-                    "days": [
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu"
-                    ]
-                },
-                "popular_times": [
-                    {
-                        "start_time": "10:00",
-                        "end_time": "16:00"
-                    },
-                    {
-                        "start_time": "17:00",
-                        "end_time": "22:00"
-                    }
-                ],
-                "type": "indoor",
-                "available_tech": [
-                    "TV",
-                    "Whiteboard",
-                    "Projector",
-                    "Monitor",
-                    "HDMI Cable"
-                ],
-                "space": "self",
-                "description": "Library room",
-                "food_available": false,
-                "rating": 4.5,
-                "reviews": [
-                    "A large room good for a medium sized group of people"
-                ],
-                "images": [
-                    "E304_1.png",
-                    "E304_2.png",
-                    "E304_3.png"
-                ],
-                "latitude": 40.79839451403231,
-                "longitude": -77.86572831321128
-            },
-            {
-                "id": 2,
-                "name": "E307",
-                "location": "Paterno",
-                "capacity": 12,
-                "times": {
-                    "open_time": "07:45",
-                    "close_time": "12:00",
-                    "days": [
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu"
-                    ]
-                },
-                "popular_times": [
-                    {
-                        "start_time": "10:00",
-                        "end_time": "16:00"
-                    },
-                    {
-                        "start_time": "17:00",
-                        "end_time": "22:00"
-                    }
-                ],
-                "type": "indoor",
-                "available_tech": [
-                    "TV",
-                    "Whiteboard",
-                    "Projector",
-                    "Monitor",
-                    "HDMI Cable"
-                ],
-                "space": "self",
-                "description": "Library room",
-                "food_available": false,
-                "rating": 4.5,
-                "reviews": [
-                    "Amazing place!"
-                ],
-                "images": [
-                    "E307_1.png",
-                    "E307_2.png",
-                    "E307_3.png"
-                ],
-                "latitude": 40.79839451403231,
-                "longitude": -77.86572831321128
-            },
-            {
-                "id": 3,
-                "name": "W024 - Collaboration Commons",
-                "location": "Pattee",
-                "capacity": 4,
-                "times": {
-                    "open_time": "07:45",
-                    "close_time": "12:00",
-                    "days": [
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu"
-                    ]
-                },
-                "popular_times": [
-                    {
-                        "start_time": "10:00",
-                        "end_time": "16:00"
-                    }
-                ],
-                "type": "indoor",
-                "available_tech": [
-                    "Whiteboard"
-                ],
-                "space": "collaborative",
-                "description": "Library room",
-                "food_available": false,
-                "rating": 4,
-                "reviews": [],
-                "images": [
-                    "W024_1.png",
-                    "W024_2.png",
-                    "W024_3.png"
-                ],
-                "latitude": 40.79823597312716,
-                "longitude": -77.86589340022368
-            },
-            {
-                "id": 4,
-                "name": "W026 - Collaboration Commons Mini",
-                "location": "Pattee",
-                "capacity": 2,
-                "times": {
-                    "open_time": "07:45",
-                    "close_time": "12:00",
-                    "days": [
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu"
-                    ]
-                },
-                "popular_times": [],
-                "type": "indoor",
-                "available_tech": [
-                    "Whiteboard"
-                ],
-                "space": "collaborative",
-                "description": "Library room",
-                "food_available": false,
-                "rating": 3.5,
-                "reviews": [],
-                "images": [
-                    "W026_1.png",
-                    "W026_2.png",
-                    "W026_3.png"
-                ],
-                "latitude": 40.79823597312716,
-                "longitude": -77.86589340022368
-            },
-
-            ],
-            buildingRoomMap: {}
         }
 
+        // for (const room of this.props.rooms) {
+        //     if (!this.buildingRoomMap.hasOwnProperty(room.location)) {
+        //         this.buildingRoomMap[room.location] = [];
+        //     }
 
-        for (const room of this.state.rooms) {
-            if (!this.state.buildingRoomMap.hasOwnProperty(room.location)) {
-                this.state.buildingRoomMap[room.location] = [];
-            }
-
-            this.state.buildingRoomMap[room.location].push(room);
-        }
+        //     this.buildingRoomMap[room.location].push(room);
+        // }
 
     }
 
-
     render() {
+
+        this.buildingRoomMap = {};
+        for (const room of this.props.rooms) {
+            if (!this.buildingRoomMap.hasOwnProperty(room.location)) {
+                this.buildingRoomMap[room.location] = [];
+            }
+
+            this.buildingRoomMap[room.location].push(room);
+        }
+
         const bldgs = []
-        for (const [bldg, rooms] of Object.entries(this.state.buildingRoomMap)) {
+        for (const [bldg, rooms] of Object.entries(this.buildingRoomMap)) {
             const roomDiv = [];
             for (let i = 0; i < rooms.length; i++) {
                 const room = rooms[i]
                 roomDiv.push(<div key={i} className='room-card' onClick={() => { this.setState({ selected: room, selectedIndex: i }) }}>
-                    <img className="room-img" alt="building name" src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=800"></img>
+                    <img className="room-img" alt="building image" src={"https://cse543-web-security.aplayerscreed.com/backend/images/" + room["images"][0]}></img>
                     <div className="">
                         {room.name}
                     </div>
@@ -372,9 +164,9 @@ class ListView extends React.Component {
                 {this.state.selected && <CenterCard room={this.state.selected} onClose={() => { this.setState({ selected: null, selectedIndex: -1 }); }}
                     onRight={() => {
                         const bldg = this.state.selected.location;
-                        if ((this.state.selectedIndex + 1) < this.state.buildingRoomMap[bldg].length) {
+                        if ((this.state.selectedIndex + 1) < this.buildingRoomMap[bldg].length) {
                             this.setState({
-                                selected: this.state.buildingRoomMap[bldg][this.state.selectedIndex + 1],
+                                selected: this.buildingRoomMap[bldg][this.state.selectedIndex + 1],
                                 selectedIndex: this.state.selectedIndex + 1
                             });
 
@@ -385,7 +177,7 @@ class ListView extends React.Component {
                         const bldg = this.state.selected.location;
                         if ((this.state.selectedIndex - 1) >= 0) {
                             this.setState({
-                                selected: this.state.buildingRoomMap[bldg][this.state.selectedIndex - 1],
+                                selected: this.buildingRoomMap[bldg][this.state.selectedIndex - 1],
                                 selectedIndex: this.state.selectedIndex - 1
                             });
                         }

@@ -11,7 +11,7 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {loggedIn: true, signUpForm: false, signedInUser: "", sideReturnStatus: "leaderboard"};
+    this.state = { loggedIn: true, signUpForm: false, signedInUser: "", sideReturnStatus: "home" };
   }
 
   signUp = () => {
@@ -19,29 +19,29 @@ class App extends React.Component {
   };
 
   loginForm = () => {
-    
+
   };
 
   defaultClosedSidebar = () => {
-    return(<p>SideBar</p>);
+    return (<p>SideBar</p>);
   };
 
   modifyPage = (data) => {
-    this.setState({sideReturnStatus: data});
+    this.setState({ sideReturnStatus: data });
     return;
   };
 
   handleMainContents = () => {
 
     var defaulthome = (
+      <div>
         <div>
-          <div>
-            <SearchBar></SearchBar>
-          </div>
-          <div className='map-section'>
-            {/* <TrackerMap></TrackerMap> */}
-          </div>
+          <SearchBar></SearchBar>
         </div>
+        <div className='map-section'>
+          {<TrackerMap></TrackerMap>}
+        </div>
+      </div>
     );
 
     var status = this.state.sideReturnStatus;
@@ -49,22 +49,22 @@ class App extends React.Component {
     if (status === "home") {
       return defaulthome;
     }
-    else if(status === "friends"){
+    else if (status === "friends") {
       return (<div>Friends</div>);
     }
-    else if(status === "saved"){
+    else if (status === "saved") {
       return (<div>Saved</div>);
     }
-    else if(status === "leaderboard"){
+    else if (status === "leaderboard") {
       return (<div><Journey></Journey></div>);
     }
-    else if(status === "see_all"){
+    else if (status === "see_all") {
       return (<div>See All</div>);
     }
-    else if(status === "sign_out"){
+    else if (status === "sign_out") {
       return (<div>Sign Out</div>);
     }
-    else{
+    else {
       return defaulthome;
     }
   };
@@ -84,14 +84,14 @@ class App extends React.Component {
           </div>
           <div>
             <header className="App-header">
-                STUDY DENS
+              STUDY DENS
             </header>
           </div>
         </div>
         {/* <div className='divider'></div> */}
         {pagebody}
       </div>
-      
+
     );
   };
 

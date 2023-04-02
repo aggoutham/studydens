@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-body{
+body {
   background: #f2f2f2;
   font-family: 'Open Sans', sans-serif;
 }
@@ -9,6 +9,16 @@ body{
   width: 100%;
   position: relative;
   display: flex;
+}
+
+.form-wrapper {
+  padding: 5px 20px;
+  background-color: white;
+  /* position: absolute */
+}
+
+.form-wrapper input[type="checkbox"] {
+  margin: 5px;
 }
 
 .searchTerm {
@@ -20,10 +30,11 @@ body{
   height: 12px;
   border-radius: 15px 0 0 15px;
   color: #9DBFAF;
-  text-indent: 12px;;
+  text-indent: 12px;
+  ;
 }
 
-.searchTerm:focus{
+.searchTerm:focus {
   color: black;
 }
 
@@ -40,32 +51,32 @@ body{
 }
 
 /*Resize the wrap to see the search bar change!*/
-.wrap{
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-right: 5px;
-    width: 85%;
-    display: inline-block;
+.wrap {
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-right: 5px;
+  display: flex;
 }
 
-.button-text{
-    color: white;
+.button-text {
+  color: white;
 }
 
-.filter-button{
+.filter-button {
   display: inline-block;
   padding-left: 5px;
   background-color: #b8b4b4;
+  margin: 0 1em 0 1em;
 }
 
-.dropdown{
+.dropdown {
   display: inline-block;
   padding: 10px;
   padding-top: 10px;
   position: relative;
 }
 
-.filter-area{
+.filter-area {
   background-color: #b8b4b4;
   min-width: 20%;
   height: auto;
@@ -81,13 +92,13 @@ body{
   display: inline-block;
 }
 
-.bottom-divider{
+.bottom-divider {
   padding-bottom: 1px;
   max-width: 80%;
   margin-right: 10%;
   display: inline-block;
 }
 
-.dropdown-items{
+.dropdown-items {
   display: block;
 }

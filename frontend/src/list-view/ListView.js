@@ -139,6 +139,7 @@ class ListView extends React.Component {
             const roomDiv = [];
             for (let i = 0; i < rooms.length; i++) {
                 const room = rooms[i]
+                console.log(room)
                 roomDiv.push(<div key={i} className='room-card' onClick={() => { this.setState({ selected: room, selectedIndex: i }) }}>
                     <img className="room-img" alt="building image" src={"https://cse543-web-security.aplayerscreed.com/backend/images/" + room["images"][0]}></img>
                     <div className="">

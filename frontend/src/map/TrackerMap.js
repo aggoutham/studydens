@@ -42,46 +42,50 @@ var TrackerMap = (props) => {
         return;
     }
 
-    const studyPlaces = [
-        {
-            name: "Loc 1",
-            location: {
-                lat: 41.3954,
-                lng: -76
-            },
-        },
-        {
-            name: "Loc 2",
-            location: {
-                lat: 40.3917,
-                lng: -78
-            },
-        },
-        {
-            name: "Loc 3",
-            location: {
-                lat: 40.89,
-                lng: -77.89
-            },
-        },
-        {
-            name: "Loc 4",
-            location: {
-                lat: 40,
-                lng: -77.67
-            },
-        },
-        {
-            name: "Loc 5",
-            location: {
-                lat: 41.4055,
-                lng: -78.2
-            },
-        }
-    ];
+    // const studyPlaces = [
+    //     {
+    //         name: "Loc 1",
+    //         location: {
+    //             lat: 41.3954,
+    //             lng: -76
+    //         },
+    //     },
+    //     {
+    //         name: "Loc 2",
+    //         location: {
+    //             lat: 40.3917,
+    //             lng: -78
+    //         },
+    //     },
+    //     {
+    //         name: "Loc 3",
+    //         location: {
+    //             lat: 40.89,
+    //             lng: -77.89
+    //         },
+    //     },
+    //     {
+    //         name: "Loc 4",
+    //         location: {
+    //             lat: 40,
+    //             lng: -77.67
+    //         },
+    //     },
+    //     {
+    //         name: "Loc 5",
+    //         location: {
+    //             lat: 41.4055,
+    //             lng: -78.2
+    //         },
+    //     }
+    // ];
+    const studyPlaces = props.studyPlaces;
+    if(studyPlaces.length == 0)
+        return;
+    console.log("studyplaces: ", studyPlaces)
 
     const onSelect = item => {
-        item.location.lat += 0.1;
+        item.location.lat += 0.001;
         setSelected(item);
     }
 
@@ -92,10 +96,6 @@ var TrackerMap = (props) => {
             </div>
         )
     });
-
-    useEffect(() => {
-        //   navigator.geolocation.getCurrentPosition(checkLocation);
-    }, [])
 
     const mapStyles = {
         height: "100vh",
@@ -111,9 +111,9 @@ var TrackerMap = (props) => {
                 googleMapsApiKey='AIzaSyC49_JDuSadpV6zVkRORRELrbM_JAG2bxA'>
                 <GoogleMap
                     mapContainerStyle={mapStyles}
-                    zoom={8}
+                    zoom={14}
                     onZoomChanged={handleZoomChanged}
-                    center={{ lat: 41, lng: -77 }}>
+                    center={{ lat: 40.80, lng: -77.86 }}>
                     {
                         currentPosition.lat &&
                         (

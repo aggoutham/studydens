@@ -22,7 +22,24 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { loggedIn: true, signUpForm: false, signedInUser: "", sideReturnStatus: "home", data: [], inputs: {} };
+    this.state = { loggedIn: true, signUpForm: false, signedInUser: "", sideReturnStatus: "home", data: [], inputs: {}, studyPlaces: [] };
+  }
+
+  generateMapProp = (data) => {
+    var ds= {};
+    var final = [];
+    for(var i=0; i< data.length; i++)
+    {
+      if(!ds.hasOwnProperty(data[i].location))
+      {
+        ds[data[i].location] = 1;
+        final.push({name: data[i].location, location: {
+                       lat: data[i].latitude,
+                       lng: data[i].longitude
+                   },});
+      }
+    }
+    this.setState({studyPlaces: final});
   }
 
   surpriseMe = () => {
@@ -70,6 +87,7 @@ class App extends React.Component {
       .then(response => response.json())
       .then((actualData) => {
         console.log(actualData);
+        this.generateMapProp(actualData);
         this.setState({ data: actualData });
       })
       .catch((err) => {
@@ -114,7 +132,7 @@ class App extends React.Component {
           <SearchBar searchCallBack={this.updateSearchRequest}></SearchBar>
         </div>
         <div className='map-section'>
-          {<TrackerMap mapCallBack={this.updateMapRequest}></TrackerMap>}
+          {<TrackerMap mapCallBack={this.updateMapRequest} studyPlaces={this.state.studyPlaces}></TrackerMap>}
         </div>
         {this.state.data.length != 0 && <ListView rooms={this.state.data}></ListView>}
       </div>
@@ -129,13 +147,13 @@ class App extends React.Component {
       return (<Friends />);
     }
     else if (status === "saved") {
-      return (<div><Saved></Saved></div>);
+      return (<div><Saved rooms={this.state.data}></Saved></div>);
     }
     else if (status === "leaderboard") {
       return (<div><Journey></Journey></div>);
     }
     else if (status === "see_all") {
-      return (<div><AllPlaces></AllPlaces></div>);
+      return (<div><AllPlaces rooms={this.state.data}></AllPlaces></div>);
     }
     else if (status === "sign_out") {
       return (<div>Sign Out</div>);

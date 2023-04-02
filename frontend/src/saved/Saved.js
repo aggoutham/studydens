@@ -12,7 +12,7 @@ class Saved extends React.Component {
     render() {
         return (
             <div> 
-                <ListView></ListView>
+                <ListView rooms={this.props.rooms}></ListView>
             </div>
         )
     }

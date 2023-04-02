@@ -54,7 +54,7 @@ body {
 .wrap {
   padding-left: 10px;
   padding-top: 10px;
-  padding-right: 5px;
+  padding-right: 2px;
   display: flex;
 }
 
@@ -64,9 +64,18 @@ body {
 
 .filter-button {
   display: inline-block;
-  padding-left: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   background-color: #b8b4b4;
-  margin: 0 1em 0 1em;
+  margin: 0 1em 0 1em!important;
+  border: 1px solid gray;
+  border-radius: 5px 5px 5px 5px;
+}
+
+.filter-holder{
+  padding-top: 3px;
 }
 
 .dropdown {
@@ -101,4 +110,33 @@ body {
 
 .dropdown-items {
   display: block;
+}
+
+.filter-area-button{
+  border-radius: 5px 5px 5px 5px;
+  border: 2px solid silver;
+  font-size: small;
+  padding-right: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: silver;
+  margin-right: 4.5%;
+  margin-top: 1%;
+}
+
+.filter-lines{
+  font-size: medium;
+  font-weight: bolder;
+  color: #041e42;
+  padding-bottom: 2%;
+}
+
+.filter-check{
+  min-width: 25px;
+
+}
+
+.filter-box{
+  margin-left: 10px;
+  max-width: 25%;
 }

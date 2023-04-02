@@ -28,67 +28,37 @@ class SearchBar extends React.Component {
     }
 
 
-    getFilters = () => {
-
-        // var dropdownContents = (<Dropdown.Menu className='filter-area' id='goutham'>
-        //     <Dropdown.Item className='dropdown-items'>Indoor
-        //         <div className="checkIndoor">
-        //             <input
-        //                 type="checkbox"
-        //                 id="indoor"
-        //                 name="indoor"
-        //                 value="Indoor"
-        //                 checked={isIndoorChecked}
-        //                 onChange={handleOnChangeIndoor}
-        //             />
-
-        //         </div>
-        //     </Dropdown.Item>
-        //     <Dropdown.Item className='dropdown-items'>Capacity</Dropdown.Item>
-        //     <Dropdown.Item className='dropdown-items'>Self Study</Dropdown.Item>
-        //     <Dropdown.Item className='dropdown-items'>Food Available</Dropdown.Item>
-        //     <Dropdown.Item className='dropdown-items'>Rating</Dropdown.Item>
-        // </Dropdown.Menu>);
-
-        // return (<Dropdown className='dropdown'>
-        //     <Dropdown.Toggle className='filter-button' variant="success" id="dropdown-autoclose-outside" data-toggle="goutham">
-        //         <FontAwesomeIcon icon={faFilter} size="lg" />
-        //     </Dropdown.Toggle>
-        //     {dropdownContents}
-        // </Dropdown>);
-    }
-
     getFilterForm = () => {
         return (
             <div className="form-wrapper">
                 <form>
-                    <div id="ind">
+                    <div id="ind" className='filter-lines'>
                         <label>
-                            Indoor
-                            <input type="checkbox" name="indoor" onChange={(e) => { this.setState({ indoor: e.target.checked }) }} />
+                            Indoor : 
+                            <input type="checkbox" className="filter-check" name="indoor" onChange={(e) => { this.setState({ indoor: e.target.checked }) }} />
                         </label>
                     </div>
-                    <div id="cap">
+                    <div id="ss" className='filter-lines'>
                         <label>
-                            Capacity
-                            <input type="text" name="capacity" onChange={(e) => { this.setState({ cap: e.target.value }) }} />
+                            Self Study : 
+                            <input type="checkbox" name="selfStudy" className="filter-check" onChange={(e) => { this.setState({ ss: e.target.checked }) }} />
                         </label>
                     </div>
-                    <div id="ss">
+                    <div id="food" className='filter-lines'>
                         <label>
-                            Self Study
-                            <input type="checkbox" name="selfStudy" onChange={(e) => { this.setState({ ss: e.target.checked }) }} />
+                            Food Available : 
+                            <input type="checkbox" name="foodAvailable" className="filter-check" onChange={(e) => { this.setState({ food: e.target.checked }) }} />
                         </label>
                     </div>
-                    <div id="food">
+                    <div id="cap" className='filter-lines'>
                         <label>
-                            Food Available
-                            <input type="checkbox" name="foodAvailable" onChange={(e) => { this.setState({ food: e.target.checked }) }} />
+                            {"Capacity >= "} 
+                            <input type="text" name="capacity" className="filter-box" onChange={(e) => { this.setState({ cap: e.target.value }) }} />
                         </label>
                     </div>
-                    <div id="rating">
+                    <div id="rating" className='filter-lines'>
                         <label>
-                            {"Rating >="}
+                            {"Rating >= "}
                             <select onChange={(e) => { this.setState({ rating: e.target.value }) }}>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -99,12 +69,21 @@ class SearchBar extends React.Component {
                         </label>
                     </div>
                     <div id="statusButtons">
-                        <button type="submit" onClick={() => { this.setState({ formFilterShow: false }) }}>Cancel</button>
-                        <input type="submit" value="Apply" onClick={(e) => { console.log({ indoor: this.state.indoor, capacity: this.state.cap, selfstudy: this.state.ss, foodAvail: this.state.food, rating: this.state.rating }) }} />
+                        <button type="submit" className='filter-area-button' onClick={() => { this.setState({ formFilterShow: false }) }}>Cancel</button>
+                        <input type="submit" className='filter-area-button' value="Apply" onClick={(e) => { console.log({ indoor: this.state.indoor, capacity: this.state.cap, selfstudy: this.state.ss, foodAvail: this.state.food, rating: this.state.rating }) }} />
                     </div>
                 </form>
             </div>
         );
+    }
+
+    handleFilterButtonClick = (e) => {
+        if(this.state.formFilterShow === true){
+            this.setState({formFilterShow: false});
+        } else{
+            this.setState({formFilterShow: true});
+        }
+
     }
 
 
@@ -122,16 +101,12 @@ class SearchBar extends React.Component {
                     <input type="text" className="searchTerm" placeholder="Try Exams, Pattee, AirPlay etc."></input>
                     <button type="submit" className="searchButton" onClick={this.handle_search}><FontAwesomeIcon icon={faSearch} color="white" size="lg" /></button>
                 </div>
-                <div>
-                    {/* <InputLabel id="demo-simple-select-label">Filter</InputLabel> */}
-                    <button onClick={(e) => { this.setState({ formFilterShow: true }) }}>
-                        Filter
+                <div className='filter-holder'>
+                    <button className='filter-button' onClick={this.handleFilterButtonClick}>
+                        <FontAwesomeIcon icon={faFilter} color="black" size="xl" />
                     </button>
                 </div>
             </div>
-            {/* <button type="submit" className='filterButton' onClick={this.openfilters}><FontAwesomeIcon icon={faFilter} size="lg" /></button> */}
-            {/* <div className='bottom-divider'></div> */}
-
             {final}
         </div>);
     };

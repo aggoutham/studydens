@@ -47,9 +47,10 @@
 }
 
 .map-section {
-  min-height: 1000px;
+  /* min-height: 1000px; */
   border: 4px solid;
   border-radius: 7px 7px 7px 7px;
+  margin-top: 10px;
 
 }
 

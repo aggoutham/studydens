@@ -42,8 +42,11 @@
     margin: 0;
     border: 0;
 
-
 }
+
+/* .menu-item:hover, .bar-item:hover {
+    background-color: white;
+} */
 
 .bar-item{
     width: 100%;

@@ -13,11 +13,35 @@ class SearchBar extends React.Component {
         this.state = { filter: false, formFilterShow: false, indoor: false, cap: 0, ss: false, food: false, rating: 0 };
     };
 
-    handle_search = () => {
+    handle_form = (event) => {
 
-        console.log("Searching.....")
+        console.log("Searching using string and params.....")
         var data = {};
         data["search"] = document.getElementById("searchStringBox").value;
+        if(this.state.indoor){
+            data["type"] = "indoor";
+        } else{
+            data["type"] = "outdoor"
+        }
+        data["capacity"] = this.state.cap;
+        if(this.state.ss){
+            data["space"] = "self";
+        } else{
+            data["space"] = "collaborative";
+        }
+        data["food_available"] = this.state.food;
+        data["rating"] = this.state.rating;
+
+        this.props.searchCallBack(data);
+        return;
+    };
+
+    handle_search = () => {
+
+        // console.log("Searching using string only.....")
+        var data = {};
+        data["search"] = document.getElementById("searchStringBox").value;
+       
         this.props.searchCallBack(data);
         return;
     };
@@ -37,28 +61,24 @@ class SearchBar extends React.Component {
                     <div id="ind" className='filter-lines'>
                         <label>
                             Indoor : 
-                            {/* <input type="checkbox" className="filter-check" name="indoor" onChange={(e) => { this.setState({ indoor: e.target.checked }) }} /> */}
                             <input type="checkbox" className="filter-check" name="indoor" onChange={(e) => { this.setState({ indoor: e.target.checked }) }} />
                         </label>
                     </div>
                     <div id="ss" className='filter-lines'>
                         <label>
                             Self Study : 
-                            {/* <input type="checkbox" name="selfStudy" className="filter-check" onChange={(e) => { this.setState({ ss: e.target.checked }) }} /> */}
                             <input type="checkbox" name="selfStudy" className="filter-check" onChange={(e) => { this.setState({ ss: e.target.checked }) }} />
                         </label>
                     </div>
                     <div id="food" className='filter-lines'>
                         <label>
                             Food Available : 
-                            {/* <input type="checkbox" name="foodAvailable" className="filter-check" onChange={(e) => { this.setState({ food: e.target.checked }) }} /> */}
                             <input type="checkbox" name="foodAvailable" className="filter-check" onChange={(e) => { this.setState({ food: e.target.checked }) }} />
                         </label>
                     </div>
                     <div id="cap" className='filter-lines'>
                         <label>
                             {"Capacity >= "} 
-                            {/* <input type="text" name="capacity" className="filter-box" onChange={(e) => { this.setState({ cap: e.target.value }) }} /> */}
                             <input type="text" name="capacity" className="filter-box" onChange={(e) => { this.setState({ cap: e.target.value }) }} />
                         </label>
                     </div>
@@ -72,13 +92,14 @@ class SearchBar extends React.Component {
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select> */}
-                            {/* <input type="text" name="capacity" className="filter-box" onChange={(e) => { this.setState({ cap: e.target.value }) }} /> */}
-                            <input type="text" name="rating" className="filter-box" onChange={(e) => { this.setState({ rating: e.target.value }) }} />
+                            <input type="text" name="capacity" className="filter-box" onChange={(e) => { this.setState({ cap: e.target.value }) }} />
                         </label>
                     </div>
                     <div id="statusButtons">
                         <button type="submit" className='filter-area-button' onClick={() => { this.setState({ formFilterShow: false }) }}>Cancel</button>
-                        <input type="submit" className='filter-area-button' value="Apply" onClick={(e) => { console.log({ indoor: this.state.indoor, capacity: this.state.cap, selfstudy: this.state.ss, foodAvail: this.state.food, rating: this.state.rating }) }} />
+                        <input type="submit" className='filter-area-button' value="Apply" onClick={() => {
+                            console.log("Hurrayyyyyyyyyyy");
+                            this.handle_form()}} />
                     </div>
                 </form>
             </div>

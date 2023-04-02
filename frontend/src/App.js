@@ -7,6 +7,8 @@ import SearchBar from './searchbar/SearchBar';
 import Journey from './journey/Journey';
 import ListView from './list-view/ListView';
 import Friends from './friends/Friends';
+import Saved from './saved/Saved';
+import AllPlaces from './allplaces/AllPlaces';
 
 class App extends React.Component {
 
@@ -35,7 +37,7 @@ class App extends React.Component {
   //     // "food_available": bool,
   //     // "rating": float
   // };
-
+    console.log("Fetching Data");
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Accept': '*/*' },
@@ -46,7 +48,8 @@ class App extends React.Component {
   fetch(this.base_url + "locations/searchfilter", requestOptions)
     .then(response => response.json())
     .then((actualData) => {
-      console.log(actualData)
+      console.log(actualData);
+      this.setState({data: actualData});
     })
     .catch((err) => {
       console.log(err.message);
@@ -105,13 +108,13 @@ class App extends React.Component {
       return (<Friends />);
     }
     else if (status === "saved") {
-      return (<div>Saved</div>);
+      return (<div><Saved></Saved></div>);
     }
     else if (status === "leaderboard") {
       return (<div><Journey></Journey></div>);
     }
     else if (status === "see_all") {
-      return (<div>See All</div>);
+      return (<div><AllPlaces></AllPlaces></div>);
     }
     else if (status === "sign_out") {
       return (<div>Sign Out</div>);
@@ -124,8 +127,10 @@ class App extends React.Component {
   render() {
     console.log("Rendering App....");
     console.log(JSON.stringify(this.coordinates));
-    if(this.state.data === []){
-      this.getData();
+    console.log(this.state.data);
+    if(this.state.data.length == 0){
+      console.log("Hello")
+      this.getData(this.coordinates);
     }
 
     var pagebody;

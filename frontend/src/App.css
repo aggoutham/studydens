@@ -67,3 +67,35 @@
   height:auto;
   display:inline-block;
 }
+
+.button-row{
+  padding: 10px;
+  align-self: center;
+}
+
+.page-sections{
+  border-radius: 5px 5px 5px 5px;
+  border: 1.5px solid black;
+  padding: 4px;
+  margin-top: 10px;
+  min-height: 600px;
+
+}
+
+.app-button{
+  border-radius: 5px 5px 5px 5px;
+  border: 2px solid gray;
+  font-size: small;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: silver;
+  margin-left: 4.5%;
+  margin-right: 4.5%;
+}
+
+
+.dummy{
+  display: grid;
+}

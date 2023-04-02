@@ -4,13 +4,14 @@ import './App.css';
 import Sidebar from './sidebar/Sidebar';
 import TrackerMap from './map/TrackerMap';
 import SearchBar from './searchbar/SearchBar';
+import Journey from './journey/Journey';
 
 class App extends React.Component {
 
 
   constructor(props) {
     super(props);
-    this.state = {loggedIn: true, signUpForm: false, signedInUser: "", sideReturnStatus: "home"};
+    this.state = {loggedIn: true, signUpForm: false, signedInUser: "", sideReturnStatus: "leaderboard"};
   }
 
   signUp = () => {
@@ -55,7 +56,7 @@ class App extends React.Component {
       return (<div>Saved</div>);
     }
     else if(status === "leaderboard"){
-      return (<div>Leaderboard</div>);
+      return (<div><Journey></Journey></div>);
     }
     else if(status === "see_all"){
       return (<div>See All</div>);

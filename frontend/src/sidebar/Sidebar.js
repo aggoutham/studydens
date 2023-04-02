@@ -47,10 +47,10 @@ class Sidebar extends React.Component {
                 <div className="bar-len w3-sidebar w3-bar-block w3-collapse w3-card" id="mySidebar">
                     <button className="menu-item" onClick={this.w3_close}>MENU</button>
                     <button className="bar-item" onClick={this.home_click}>Home</button>
+                    <button className="bar-item" onClick={this.see_click}>All Places</button>
                     <button className="bar-item" onClick={this.friends_click}>Friends</button>
-                    <button className="bar-item" onClick={this.saved_click}>Saved</button>
-                    <button className="bar-item" onClick={this.leader_click}>Leaderboard</button>
-                    <button className="bar-item" onClick={this.see_click}>See All</button>
+                    <button className="bar-item" onClick={this.leader_click}>My Journey</button>
+                    <button className="bar-item" onClick={this.saved_click}>Favorites</button>
                     <button className="bar-item" onClick={this.sign_click}>Sign Out</button>
                 </div>
 

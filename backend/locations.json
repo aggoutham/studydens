@@ -34,6 +34,7 @@
         "description": "Library room",
         "food_available": false,
         "rating": 4,
+        "rating_count": 2,
         "reviews": [
             "A really nice isolated self-working space for people requiring quietude",
             "A well-lit room with good facilities"
@@ -83,6 +84,7 @@
         "description": "Library room",
         "food_available": false,
         "rating": 4.5,
+        "rating_count": 1,
         "reviews": [
             "A large room good for a medium sized group of people"
         ],
@@ -131,6 +133,7 @@
         "description": "Library room",
         "food_available": false,
         "rating": 4.5,
+        "rating_count": 2,
         "reviews": [
             "Amazing place!"
         ],
@@ -171,6 +174,7 @@
         "description": "Library room",
         "food_available": false,
         "rating": 4,
+        "rating_count": 3,
         "reviews": [],
         "images": [
             "W024_1.png",
@@ -204,6 +208,7 @@
         "description": "Library room",
         "food_available": false,
         "rating": 3.5,
+        "rating_count": 4,
         "reviews": [],
         "images": [
             "W026_1.png",
@@ -238,6 +243,7 @@
         "description": "Library reading room",
         "food_available": false,
         "rating": 4,
+        "rating_count": 1,
         "reviews": [
             "A really nice quiet reading place"
         ],
@@ -280,6 +286,7 @@
         "description": "Library room",
         "food_available": false,
         "rating": 3,
+        "rating_count": 2,
         "reviews": [
             "Not a very well-lit and air ventilated room, but good otherwise"
         ],
@@ -331,6 +338,7 @@
         "description": "Library room",
         "food_available": false,
         "rating": 5,
+        "rating_count": 3,
         "reviews": [
             "Just lovely to sit and study!",
             "Good to sit with friends and just hang out, chill and relax",
@@ -375,6 +383,7 @@
         "description": "Library room",
         "food_available": false,
         "rating": 3.5,
+        "rating_count": 1,
         "reviews": [],
         "images": [
             "117_1.png"
@@ -405,6 +414,7 @@
         "description": "Library room",
         "food_available": false,
         "rating": 2.5,
+        "rating_count": 2,
         "reviews": [
             "No utilities available i.e. whiteboard, TV, etc."
         ],
@@ -464,6 +474,7 @@
         "description": "Study room",
         "food_available": true,
         "rating": 4,
+        "rating_count": 3,
         "reviews": [
             "Close to downtown, so easily accessible"
         ],
@@ -505,6 +516,7 @@
         "description": "Study room",
         "food_available": true,
         "rating": 4,
+        "rating_count": 2,
         "reviews": [],
         "images": [
             "114B_1.png",
@@ -544,6 +556,7 @@
         "description": "Study room",
         "food_available": false,
         "rating": 4,
+        "rating_count": 4,
         "reviews": [
             "Good enough for 2 people to sit and work together"
         ],
@@ -583,6 +596,7 @@
         "description": "Study room",
         "food_available": false,
         "rating": 4.5,
+        "rating_count": 3,
         "reviews": [
             "Nice ambience!"
         ],
@@ -619,6 +633,7 @@
         "description": "Study room",
         "food_available": false,
         "rating": 3.5,
+        "rating_count": 1,
         "reviews": [
             "Only whiteboard is available, not even a monitor to work on"
         ],
@@ -662,6 +677,7 @@
         "description": "Collaboration room",
         "food_available": true,
         "rating": 5,
+        "rating_count": 4,
         "reviews": [
             "Good utilities available!"
         ],
@@ -705,6 +721,7 @@
         "description": "Collaboration room",
         "food_available": true,
         "rating": 5,
+        "rating_count": 2,
         "reviews": [
             "Good utilities available!",
             "Nice place for group study"
@@ -747,6 +764,7 @@
         "description": "Open space",
         "food_available": true,
         "rating": 4,
+        "rating_count": 4,
         "reviews": [
             "Nice view overlooking the Atherton Street"
         ],
@@ -788,6 +806,7 @@
         "description": "Open space",
         "food_available": false,
         "rating": 3.5,
+        "rating_count": 1,
         "reviews": [],
         "images": [
             "WestgateO_1.png",
@@ -827,6 +846,7 @@
         "description": "Open space",
         "food_available": true,
         "rating": 4.5,
+        "rating_count": 3,
         "reviews": [],
         "images": [
             "Kern_1.png",
@@ -870,6 +890,7 @@
         "description": "Open space",
         "food_available": true,
         "rating": 5,
+        "rating_count": 1,
         "reviews": [
             "Really nice ice-cream available!"
         ],
@@ -919,6 +940,7 @@
         "description": "Open space",
         "food_available": true,
         "rating": 5,
+        "rating_count": 3,
         "reviews": [
             "Very comfortable to sit and relax, love the vibe"
         ],
@@ -955,6 +977,7 @@
         "description": "Open space",
         "food_available": false,
         "rating": 4.5,
+        "rating_count": 4,
         "reviews": [
             "Useful for large gatherings and events"
         ],
@@ -1000,6 +1023,7 @@
         "description": "Open space",
         "food_available": true,
         "rating": 4,
+        "rating_count": 1,
         "reviews": [
             "Amazing during good weather but not a place to be at during cold and rains",
             "Liked it very much :)",

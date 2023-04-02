@@ -39,6 +39,7 @@ locations.json
         "description": string,
         "food_available": bool,
         "rating": float (1-5),
+        "rating_count": int,
         "reviews": [
             string,
             string,
@@ -66,7 +67,7 @@ users.json
 {
     "id": int,
     "name": string,
-    "rating": float (1-5),
+    "stars": int,
     "badge": string ("bronze"/"silver"/"gold"),
     "levels_completed": int,
     "favorites": [
@@ -92,3 +93,9 @@ users.json
         . (user ids)
     ]
 }
+
+num_missions = 30
+missions_per_badge = 15, 10, 5
+num_badges = 3 (bronze/silver/gold)
+missions_per_rating = 6
+missions_per_half_rating = 3

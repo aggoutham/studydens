@@ -1,97 +1,136 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { Component } from 'react';
+import { GoogleMap, LoadScript, MarkerF, useGoogleMap, InfoWindowF } from '@react-google-maps/api';
 import './TrackerMap.css';
-const TrackerMap = () => {
-  const currImage = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
-  const [currentPosition, setCurrentPosition] = useState({});
-  
-  const success = position => {
-    const currentPosition = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-    }
-    setCurrentPosition(currentPosition);
-  };
 
-  const studyPlaces = [
-    {
-      name: "Loc 1",
-      location: { 
-        lat: 41.3954,
-        lng: -76 
-      },
-    },
-    {
-      name: "Loc 2",
-      location: { 
-        lat: 40.3917,
-        lng: -78
-      },
-    },
-    {
-      name: "Loc 3",
-      location: { 
-        lat: 40.89,
-        lng: -77.89
-      },
-    },
-    {
-      name: "Loc 4",
-      location: { 
-        lat: 40,
-        lng: -77.67
-      },
-    },
-    {
-      name: "Loc 5",
-      location: { 
-        lat: 41.4055,
-        lng: -78.2
-      },
-    }
-  ];
+var TrackerMap = () => {
+    console.log("Map object rendering now !!!")
 
-  var studyPlaceIcons = studyPlaces.map(item => {
-   // console.log(item.name);
-   return(
-      <Marker key={item.name} position={item.location} icon={currImage}/>
-    // <p>Goutham</p>
-   ) })
+    let map = null;
 
-   var studyHTMLTags = ""
-   for (let i = 0; i < studyPlaceIcons.length; i++) {
-    studyHTMLTags += studyPlaceIcons[i] + "\n";
+
+    var currImage = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+    var [currentPosition, setCurrentPosition] = useState({});
+    const [selected, setSelected] = useState({});
+
+    if (!currentPosition.hasOwnProperty('lat')) {
+        navigator.geolocation.getCurrentPosition((pos) => {
+            console.log('Ran geo', pos.coords)
+            setCurrentPosition({ lat: pos.coords.latitude, lng: pos.coords.longitude });
+            console.log(currentPosition);
+        });
     }
 
+    //    console.log("curr:", currentPosition);
 
-    console.log("hell:", studyHTMLTags);
-  
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(success);
-  }, [])
+    function handleZoomChanged() {
+        var bounds = this.getBounds();
+        if (bounds != undefined) {
+            console.log("map obj:", this) //this refers to Google Map instance
+            console.log("bounds:", bounds.Va.lo, bounds.Va.hi, bounds.Ga.lo, bounds.Ga.hi);
+        }
+    }
 
-  const mapStyles = {        
-    height: "100vh",
-    width: "100%"};
-  
-  console.log(currentPosition.lat, currentPosition.lng);
- 
-  return (
-     <LoadScript
-       googleMapsApiKey='AIzaSyC49_JDuSadpV6zVkRORRELrbM_JAG2bxA'>
-        <GoogleMap
-          mapContainerStyle={mapStyles}
-          zoom={13}
-          center={currentPosition}>
-          {/* {
-            currentPosition.lat &&
-            ( 
-              <Marker position={currentPosition} icon= {currImage}/>
-            ) 
-          } */}
-          {studyPlaceIcons}
-        </GoogleMap>
-     </LoadScript>
-  )
+    const studyPlaces = [
+        {
+            name: "Loc 1",
+            location: {
+                lat: 41.3954,
+                lng: -76
+            },
+        },
+        {
+            name: "Loc 2",
+            location: {
+                lat: 40.3917,
+                lng: -78
+            },
+        },
+        {
+            name: "Loc 3",
+            location: {
+                lat: 40.89,
+                lng: -77.89
+            },
+        },
+        {
+            name: "Loc 4",
+            location: {
+                lat: 40,
+                lng: -77.67
+            },
+        },
+        {
+            name: "Loc 5",
+            location: {
+                lat: 41.4055,
+                lng: -78.2
+            },
+        }
+    ];
+
+    const onSelect = item => {
+        item.location.lat += 0.1;
+        setSelected(item);
+    }
+
+    var studyPlaceIcons = studyPlaces.map(item => {
+        return (
+            <div key={item.name}>
+                <MarkerF position={item.location} onClick={() => onSelect(item)} />
+            </div>
+        )
+    });
+
+    useEffect(() => {
+        //   navigator.geolocation.getCurrentPosition(checkLocation);
+    }, [])
+
+    const mapStyles = {
+        height: "100vh",
+        width: "100%"
+    };
+
+
+    // console.log(currentPosition.lat, currentPosition.lng);
+
+    return (
+        <div>
+            <LoadScript
+                googleMapsApiKey='AIzaSyC49_JDuSadpV6zVkRORRELrbM_JAG2bxA'>
+                <GoogleMap
+                    mapContainerStyle={mapStyles}
+                    zoom={8}
+                    onZoomChanged={handleZoomChanged}
+                    center={{ lat: 41, lng: -77 }}>
+                    {
+                        currentPosition.lat &&
+                        (
+                            <MarkerF position={currentPosition} icon={currImage} />
+                        )}
+                    {studyPlaceIcons}
+                    {
+                        selected.location &&
+                        (
+                            <InfoWindowF
+                                position={selected.location}
+                                clickable={true}
+                                onCloseClick={() => setSelected({})}
+                            >
+                                <p>{selected.name}</p>
+                            </InfoWindowF>
+                        )
+                    }
+                </GoogleMap>
+            </LoadScript>
+        </div>
+    )
+
+
+
+
+
+
+
 }
 export default TrackerMap;

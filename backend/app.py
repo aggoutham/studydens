@@ -1,11 +1,11 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS, cross_origin
 import file
 import recommender
 import search_filter
 
 glove_model = search_filter.load_glove_model()
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../images")
 cors = CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
 
@@ -242,3 +242,7 @@ def get_new_location():
         if id == d["id"]:
             return jsonify(d), 200
     return jsonify({}), 406
+
+@app.route("/image/<path:path>")
+def get_image(path):
+    return send_from_directory(app.static_folder, path)

@@ -10,7 +10,7 @@ class Journey extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {page: "progress"};
+        this.state = {page: "leader"};
     };
 
     bringProgressPage = () => {

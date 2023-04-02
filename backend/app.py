@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 import file
+import recommender
 
 app = Flask(__name__)
 
@@ -208,3 +209,20 @@ def edit_location():
         file.set_locations_data(data)
         return "", 204
     return "", 406
+
+'''
+Give a new location GET API
+request payload-
+{
+    "id": int
+}
+'''
+@app.route("/location/new")
+def get_new_location():
+    data = file.get_locations_data()
+    request_payload = request.get_json()
+    id = recommender.recommender(request_payload["id"])
+    for d in data:
+        if id == d["id"]:
+            return jsonify(d)
+    return jsonify({})

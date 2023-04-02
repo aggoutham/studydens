@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { GoogleMap, LoadScript, MarkerF, useGoogleMap, InfoWindowF } from '@react-google-maps/api';
 import './TrackerMap.css';
 
-var TrackerMap = () => {
+var TrackerMap = (props) => {
     console.log("Map object rendering now !!!")
 
     let map = null;
@@ -28,7 +28,18 @@ var TrackerMap = () => {
         if (bounds != undefined) {
             console.log("map obj:", this) //this refers to Google Map instance
             console.log("bounds:", bounds.Va.lo, bounds.Va.hi, bounds.Ga.lo, bounds.Ga.hi);
+
+
+            var data = {
+                "l_latitude": bounds.Va.lo,
+                "l_longitude": bounds.Ga.lo,
+                "h_latitude": bounds.Va.hi,
+                "h_longitude": bounds.Ga.hi};
+            
+            props.mapCallBack(data);
         }
+
+        return;
     }
 
     const studyPlaces = [

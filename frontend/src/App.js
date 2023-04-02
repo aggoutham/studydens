@@ -55,7 +55,8 @@ class App extends React.Component {
       .then(response => response.json())
       .then((actualData) => {
         console.log(actualData);
-        this.setState({data: actualData});
+        this.generateMapProp([actualData]);
+        this.setState({data: [actualData]});
       })
       .catch((err) => {
         console.log(err.message);
@@ -147,7 +148,7 @@ class App extends React.Component {
       return (<Friends />);
     }
     else if (status === "saved") {
-      return (<div><Saved rooms={this.state.data}></Saved></div>);
+      return (<div><Saved rooms={this.state.data.slice(0, 4)}></Saved></div>);
     }
     else if (status === "leaderboard") {
       return (<div><Journey></Journey></div>);

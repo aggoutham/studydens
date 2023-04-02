@@ -5,6 +5,7 @@ import Sidebar from './sidebar/Sidebar';
 import TrackerMap from './map/TrackerMap';
 import SearchBar from './searchbar/SearchBar';
 import Journey from './journey/Journey';
+import ListView from './list-view/ListView';
 
 class App extends React.Component {
 
@@ -41,6 +42,7 @@ class App extends React.Component {
         <div className='map-section'>
           {<TrackerMap></TrackerMap>}
         </div>
+        <ListView></ListView>
       </div>
     );
 

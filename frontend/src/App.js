@@ -25,6 +25,26 @@ class App extends React.Component {
     this.state = { loggedIn: true, signUpForm: false, signedInUser: "", sideReturnStatus: "home", data: [], inputs: {} };
   }
 
+  surpriseMe = () => {
+    var inputObj = {"id": 0};
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': '*/*' },
+      body: JSON.stringify(inputObj),
+      mode: 'cors'
+    };
+  
+    fetch(this.base_url + "location/new", requestOptions)
+      .then(response => response.json())
+      .then((actualData) => {
+        console.log(actualData);
+        this.setState({data: actualData});
+      })
+      .catch((err) => {
+        console.log(err.message);
+        });
+  };
+
   getData = (inputObj) => {
     //   var data = {
     //     "l_latitude": 37.11,
@@ -144,7 +164,9 @@ class App extends React.Component {
           </div>
           <div>
             <header className="App-header">
-              STUDY DENS
+              <div className='title-block'>STUDY DENS</div>
+              
+              <button className='app-button lucky-button' onClick={this.surpriseMe}> Suprise Me! </button>
             </header>
           </div>
         </div>

@@ -94,8 +94,8 @@ users.json
     ]
 }
 
-num_missions = 30
-missions_per_badge = 15, 10, 5
+num_missions = 150
+missions_per_badge = 75, 50, 25
 num_badges = 3 (bronze/silver/gold)
-missions_per_rating = 6
-missions_per_half_rating = 3
+missions_per_rating = 30
+missions_per_half_rating = 15

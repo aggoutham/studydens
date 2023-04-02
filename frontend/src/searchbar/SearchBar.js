@@ -16,7 +16,9 @@ class SearchBar extends React.Component {
     handle_search = () => {
 
         console.log("Searching.....")
-
+        var data = {};
+        data["search"] = document.getElementById("searchStringBox").value;
+        this.props.searchCallBack(data);
         return;
     };
 
@@ -35,37 +37,43 @@ class SearchBar extends React.Component {
                     <div id="ind" className='filter-lines'>
                         <label>
                             Indoor : 
+                            {/* <input type="checkbox" className="filter-check" name="indoor" onChange={(e) => { this.setState({ indoor: e.target.checked }) }} /> */}
                             <input type="checkbox" className="filter-check" name="indoor" onChange={(e) => { this.setState({ indoor: e.target.checked }) }} />
                         </label>
                     </div>
                     <div id="ss" className='filter-lines'>
                         <label>
                             Self Study : 
+                            {/* <input type="checkbox" name="selfStudy" className="filter-check" onChange={(e) => { this.setState({ ss: e.target.checked }) }} /> */}
                             <input type="checkbox" name="selfStudy" className="filter-check" onChange={(e) => { this.setState({ ss: e.target.checked }) }} />
                         </label>
                     </div>
                     <div id="food" className='filter-lines'>
                         <label>
                             Food Available : 
+                            {/* <input type="checkbox" name="foodAvailable" className="filter-check" onChange={(e) => { this.setState({ food: e.target.checked }) }} /> */}
                             <input type="checkbox" name="foodAvailable" className="filter-check" onChange={(e) => { this.setState({ food: e.target.checked }) }} />
                         </label>
                     </div>
                     <div id="cap" className='filter-lines'>
                         <label>
                             {"Capacity >= "} 
+                            {/* <input type="text" name="capacity" className="filter-box" onChange={(e) => { this.setState({ cap: e.target.value }) }} /> */}
                             <input type="text" name="capacity" className="filter-box" onChange={(e) => { this.setState({ cap: e.target.value }) }} />
                         </label>
                     </div>
                     <div id="rating" className='filter-lines'>
                         <label>
                             {"Rating >= "}
-                            <select onChange={(e) => { this.setState({ rating: e.target.value }) }}>
+                            {/* <select onChange={(e) => { this.setState({ rating: e.target.value }) }}>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
-                            </select>
+                            </select> */}
+                            {/* <input type="text" name="capacity" className="filter-box" onChange={(e) => { this.setState({ cap: e.target.value }) }} /> */}
+                            <input type="text" name="rating" className="filter-box" onChange={(e) => { this.setState({ rating: e.target.value }) }} />
                         </label>
                     </div>
                     <div id="statusButtons">
@@ -98,7 +106,7 @@ class SearchBar extends React.Component {
         return (<div>
             <div className="wrap">
                 <div className="search">
-                    <input type="text" className="searchTerm" placeholder="Try Exams, Pattee, AirPlay etc."></input>
+                    <input type="text" className="searchTerm" id="searchStringBox" placeholder="Try Exams, Pattee, AirPlay etc."></input>
                     <button type="submit" className="searchButton" onClick={this.handle_search}><FontAwesomeIcon icon={faSearch} color="white" size="lg" /></button>
                 </div>
                 <div className='filter-holder'>

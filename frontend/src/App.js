@@ -10,11 +10,49 @@ import Friends from './friends/Friends';
 
 class App extends React.Component {
 
+  base_url = "https://cse543-web-security.aplayerscreed.com/backend/";
+  coordinates = {
+        "l_latitude": 37.11,
+        "l_longitude": -79.41,
+        "h_latitude": 44.14,
+        "h_longitude": -75.22};
 
   constructor(props) {
     super(props);
-    this.state = { loggedIn: true, signUpForm: false, signedInUser: "", sideReturnStatus: "home" };
+    this.state = { loggedIn: true, signUpForm: false, signedInUser: "", sideReturnStatus: "home", data: [], inputs: {} };
   }
+
+  getData = (inputObj) => {
+  //   var data = {
+  //     "l_latitude": 37.11,
+  //     "l_longitude": -79.41,
+  //     "h_latitude": 44.14,
+  //     "h_longitude": -75.22
+  //     // "search": string,
+  //     // "type": string (indoor/outdoor),
+  //     // "capacity": int,
+  //     // "space": string (self/collaborative),
+  //     // "food_available": bool,
+  //     // "rating": float
+  // };
+
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': '*/*' },
+    body: JSON.stringify(inputObj),
+    mode: 'cors'
+  };
+
+  fetch(this.base_url + "locations/searchfilter", requestOptions)
+    .then(response => response.json())
+    .then((actualData) => {
+      console.log(actualData)
+    })
+    .catch((err) => {
+      console.log(err.message);
+      });
+
+  };
 
   signUp = () => {
 
@@ -33,15 +71,26 @@ class App extends React.Component {
     return;
   };
 
+  updateMapRequest = (dataObj) => {
+    this.coordinates = dataObj;
+    return;
+  }
+
+  updateSearchRequest = (dataObj) => {
+    // this.setState({inputs: Object.assign({}, this.coordinates, dataObj)});
+    this.getData(Object.assign({}, this.coordinates, dataObj));
+    return;
+  }
+
   handleMainContents = () => {
 
     var defaulthome = (
       <div>
         <div>
-          <SearchBar></SearchBar>
+          <SearchBar searchCallBack={this.updateSearchRequest}></SearchBar>
         </div>
         <div className='map-section'>
-          {<TrackerMap></TrackerMap>}
+          {<TrackerMap mapCallBack={this.updateMapRequest}></TrackerMap>}
         </div>
         <ListView></ListView>
       </div>
@@ -74,6 +123,10 @@ class App extends React.Component {
 
   render() {
     console.log("Rendering App....");
+    console.log(JSON.stringify(this.coordinates));
+    if(this.state.data === []){
+      this.getData();
+    }
 
     var pagebody;
     pagebody = this.handleMainContents();

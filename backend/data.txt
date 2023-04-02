@@ -99,3 +99,8 @@ missions_per_badge = 75, 50, 25
 num_badges = 3 (bronze/silver/gold)
 missions_per_rating = 30
 missions_per_half_rating = 15
+
+l_lat 37.11
+l_long -79.41
+h_lat 44.14
+h_long -75.22

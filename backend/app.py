@@ -2,7 +2,9 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 import file
 import recommender
+import search_filter
 
+glove_model = search_filter.load_glove_model()
 app = Flask(__name__)
 cors = CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
@@ -47,7 +49,7 @@ def add_user():
     return "", 204
 
 '''
-Search, filter and location based GET API
+Search, filter and location based POST API
 request payload-
 {
     "l_latitude": float,
@@ -62,7 +64,7 @@ request payload-
     "rating": float
 }
 '''
-@app.route("/locations/searchfilter")
+@app.route("/locations/searchfilter", methods=["POST"])
 @cross_origin()
 def get_specific_locations():
     data = file.get_locations_data()
@@ -79,18 +81,17 @@ def get_specific_locations():
     if "rating" in request_payload:
         specific_data = [d for d in specific_data if request_payload["rating"] <= d["rating"]]
     if "search" in request_payload:
-        #TODO
-        pass
-    return jsonify(specific_data)
+        specific_data = search_filter.search_filter(request_payload["search"], specific_data, glove_model)
+    return jsonify(specific_data), 200
 
 '''
-Favorite locations GET API
+Favorite locations POST API
 request payload-
 {
     "id": int
 }
 '''
-@app.route("/user/favorites")
+@app.route("/user/favorites", methods=["POST"])
 @cross_origin()
 def get_favorites_locations():
     location_data = file.get_locations_data()
@@ -102,34 +103,34 @@ def get_favorites_locations():
             user = u
             break
     if u:
-        return jsonify([d for d in location_data if d["id"] in u["favorites"]])
-    return jsonify([])
+        return jsonify([d for d in location_data if d["id"] in u["favorites"]]), 200
+    return jsonify([]), 406
 
 '''
-User progress GET API
+User progress POST API
 request payload-
 {
     "id": int
 }
 '''
-@app.route("/user/progress")
+@app.route("/user/progress", methods=["POST"])
 @cross_origin()
 def get_user_progress():
     data = file.get_users_data()
     request_payload = request.get_json()
     for u in data:
         if request_payload["id"] == u["id"]:
-            return jsonify(u)
-    return jsonify({})
+            return jsonify(u), 200
+    return jsonify({}), 406
 
 '''
-User friends GET API
+User friends POST API
 request payload-
 {
     "id": int
 }
 '''
-@app.route("/user/friends")
+@app.route("/user/friends", methods=["POST"])
 @cross_origin()
 def get_user_friends():
     data = file.get_users_data()
@@ -140,17 +141,17 @@ def get_user_friends():
             user = u
             break
     if u:
-        return jsonify([d for d in data if d["id"] in u["friends"]])
-    return jsonify([])
+        return jsonify([d for d in data if d["id"] in u["friends"]]), 200
+    return jsonify([]), 406
 
 '''
-User leaderboard GET API
+User leaderboard POST API
 request payload-
 {
     "id": int
 }
 '''
-@app.route("/user/leaderboard")
+@app.route("/user/leaderboard", methods=["POST"])
 @cross_origin()
 def get_user_leaderboard():
     data = file.get_users_data()
@@ -162,8 +163,8 @@ def get_user_leaderboard():
             break
     if u:
         specific_data = [d for d in data if d["id"] in u["friends"] or d["id"] == u["id"]]
-        return jsonify(sorted([d for d in data if d["id"] in u["friends"] or d["id"] == u["id"]], key=lambda x: x["stars"], reverse=True))
-    return jsonify([])
+        return jsonify(sorted([d for d in data if d["id"] in u["friends"] or d["id"] == u["id"]], key=lambda x: x["stars"], reverse=True)), 200
+    return jsonify([]), 406
 
 
 '''
@@ -225,13 +226,13 @@ def edit_location():
     return "", 406
 
 '''
-Give a new location GET API
+Give a new location POST API
 request payload-
 {
     "id": int
 }
 '''
-@app.route("/location/new")
+@app.route("/location/new", methods=["POST"])
 @cross_origin()
 def get_new_location():
     data = file.get_locations_data()
@@ -239,5 +240,5 @@ def get_new_location():
     id = recommender.recommender(request_payload["id"])
     for d in data:
         if id == d["id"]:
-            return jsonify(d)
-    return jsonify({})
+            return jsonify(d), 200
+    return jsonify({}), 406

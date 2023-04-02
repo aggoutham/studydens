@@ -30,7 +30,7 @@ def get_vectors(word_list, glove_model):
 
 def get_important_words(loc):
     words = []
-    libraries = ['Pattee', 'Paterno', 'Dieke']
+    libraries = ['Pattee', 'Paterno', 'Deike']
 
     if loc['type'] is not None:
         words.append(loc['type'])
@@ -98,7 +98,7 @@ def search_filter(search_str, json_data, glove_model):
         filtered_output = [json_data[k] for k in sorted_loc_ids]
 
     except:
-        filtered_output = json_data[:5]
+        filtered_output = json_data
 
     return filtered_output
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import './ListView.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimes, faStar, faUser, faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faTimes, faStar, faUser, faLocationDot, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 //import './window-close-solid.svg';
 
@@ -27,6 +28,20 @@ class CenterCard extends React.Component {
             } else {
                 stars.push(<FontAwesomeIcon key={i} icon={faStar} className='stars-nocolor' />);
             }
+        }
+
+        let reviews = [];
+
+        for (let i = 0; i < this.props.room.reviews.length; i++) {
+            const review = this.props.room.reviews[i];
+
+            reviews.push(<div className='review-box'>
+                <FontAwesomeIcon icon={faUser} style={{
+                    marginTop: '0.2em'
+                }} />
+                <div>{review}</div>
+            </div>);
+
         }
 
         return (<React.Fragment>
@@ -74,16 +89,7 @@ class CenterCard extends React.Component {
                         </TabPanel>
                         <TabPanel>
                             <div>
-                                {
-                                    this.props.room.reviews.map(review => {
-                                        return <div className='review-box'>
-                                            <FontAwesomeIcon icon={faUser} style={{
-                                                marginTop: '0.2em'
-                                            }} />
-                                            <div>{review}</div>
-                                        </div>
-                                    })
-                                }
+                                {reviews}
                             </div>
                         </TabPanel>
                     </Tabs>
@@ -92,6 +98,8 @@ class CenterCard extends React.Component {
 
             <div className='center-card-bg' />
             <FontAwesomeIcon icon={faTimes} className='close-icon' onClick={this.props.onClose} />
+            <FontAwesomeIcon icon={faChevronLeft} className='left-icon' onClick={this.props.onLeft} />
+            <FontAwesomeIcon icon={faChevronRight} className='right-icon' onClick={this.props.onRight} />
         </React.Fragment>);
     }
 }
@@ -101,6 +109,7 @@ class ListView extends React.Component {
         super(props);
         this.state = {
             selected: false,
+            selectedIndex: -1,
             rooms: [{
                 "id": 0,
                 "name": "E128A",
@@ -335,6 +344,16 @@ class ListView extends React.Component {
     render() {
         const bldgs = []
         for (const [bldg, rooms] of Object.entries(this.state.buildingRoomMap)) {
+            const roomDiv = [];
+            for (let i = 0; i < rooms.length; i++) {
+                const room = rooms[i]
+                roomDiv.push(<div key={i} className='room-card' onClick={() => { this.setState({ selected: room, selectedIndex: i }) }}>
+                    <img className="room-img" alt="building name" src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=800"></img>
+                    <div className="">
+                        {room.name}
+                    </div>
+                </div>)
+            }
             bldgs.push(<div key={bldg} className='bldg-card'>
                 <div >
                     <FontAwesomeIcon icon={faLocationDot} style={{
@@ -343,23 +362,35 @@ class ListView extends React.Component {
                     {bldg}
                 </div>
                 <div className='room-container'>
-                    {
-                        rooms.map(room => <div key={room.name} className='room-card' onClick={() => { this.setState({ selected: room }) }}>
-                            <img className="room-img" alt="building name" src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=800"></img>
-                            <div className="">
-                                {room.name}
-                            </div>
-                        </div>)
-                    }
+                    {roomDiv}
                 </div>
             </div>)
         }
         return (
             <div>
                 {bldgs}
-                {this.state.selected && <CenterCard room={this.state.selected} onClose={() => {
-                    this.setState({ selected: null });
-                }} />}
+                {this.state.selected && <CenterCard room={this.state.selected} onClose={() => { this.setState({ selected: null, selectedIndex: -1 }); }}
+                    onRight={() => {
+                        const bldg = this.state.selected.location;
+                        if ((this.state.selectedIndex + 1) < this.state.buildingRoomMap[bldg].length) {
+                            this.setState({
+                                selected: this.state.buildingRoomMap[bldg][this.state.selectedIndex + 1],
+                                selectedIndex: this.state.selectedIndex + 1
+                            });
+
+                        }
+                    }}
+
+                    onLeft={() => {
+                        const bldg = this.state.selected.location;
+                        if ((this.state.selectedIndex - 1) >= 0) {
+                            this.setState({
+                                selected: this.state.buildingRoomMap[bldg][this.state.selectedIndex - 1],
+                                selectedIndex: this.state.selectedIndex - 1
+                            });
+                        }
+                    }} />}
+
 
             </div >
 

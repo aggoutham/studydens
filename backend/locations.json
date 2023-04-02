@@ -1,0 +1,1016 @@
+[
+    {
+        "id": 0,
+        "name": "E128A",
+        "location": "Paterno",
+        "capacity": 4,
+        "times": {
+            "open_time": "07:45",
+            "close_time": "12:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "10:00",
+                "end_time": "16:00"
+            },
+            {
+                "start_time": "18:00",
+                "end_time": "21:00"
+            }
+        ],
+        "type": "indoor",
+        "available_tech": [
+            "Whiteboard",
+            "Projector",
+            "HDMI Cable"
+        ],
+        "space": "self",
+        "description": "Library room",
+        "food_available": false,
+        "rating": 4,
+        "reviews": [
+            "A really nice isolated self-working space for people requiring quietude",
+            "A well-lit room with good facilities"
+        ],
+        "images": [
+            "E128A_1.png",
+            "E128A_2.png",
+            "E128A_3.png"
+        ],
+        "latitude": 40.79839451403231,
+        "longitude": -77.86572831321128
+    },
+    {
+        "id": 1,
+        "name": "E304",
+        "location": "Paterno",
+        "capacity": 16,
+        "times": {
+            "open_time": "07:45",
+            "close_time": "12:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "10:00",
+                "end_time": "16:00"
+            },
+            {
+                "start_time": "17:00",
+                "end_time": "22:00"
+            }
+        ],
+        "type": "indoor",
+        "available_tech": [
+            "TV",
+            "Whiteboard",
+            "Projector",
+            "Monitor",
+            "HDMI Cable"
+        ],
+        "space": "self",
+        "description": "Library room",
+        "food_available": false,
+        "rating": 4.5,
+        "reviews": [
+            "A large room good for a medium sized group of people"
+        ],
+        "images": [
+            "E304_1.png",
+            "E304_2.png",
+            "E304_3.png"
+        ],
+        "latitude": 40.79839451403231,
+        "longitude": -77.86572831321128
+    },
+    {
+        "id": 2,
+        "name": "E307",
+        "location": "Paterno",
+        "capacity": 12,
+        "times": {
+            "open_time": "07:45",
+            "close_time": "12:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "10:00",
+                "end_time": "16:00"
+            },
+            {
+                "start_time": "17:00",
+                "end_time": "22:00"
+            }
+        ],
+        "type": "indoor",
+        "available_tech": [
+            "TV",
+            "Whiteboard",
+            "Projector",
+            "Monitor",
+            "HDMI Cable"
+        ],
+        "space": "self",
+        "description": "Library room",
+        "food_available": false,
+        "rating": 4.5,
+        "reviews": [
+            "Amazing place!"
+        ],
+        "images": [
+            "E307_1.png",
+            "E307_2.png",
+            "E307_3.png"
+        ],
+        "latitude": 40.79839451403231,
+        "longitude": -77.86572831321128
+    },
+    {
+        "id": 3,
+        "name": "W024 - Collaboration Commons",
+        "location": "Pattee",
+        "capacity": 4,
+        "times": {
+            "open_time": "07:45",
+            "close_time": "12:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "10:00",
+                "end_time": "16:00"
+            }
+        ],
+        "type": "indoor",
+        "available_tech": [
+            "Whiteboard"
+        ],
+        "space": "collaborative",
+        "description": "Library room",
+        "food_available": false,
+        "rating": 4,
+        "reviews": [],
+        "images": [
+            "W024_1.png",
+            "W024_2.png",
+            "W024_3.png"
+        ],
+        "latitude": 40.79823597312716,
+        "longitude": -77.86589340022368
+    },
+    {
+        "id": 4,
+        "name": "W026 - Collaboration Commons Mini",
+        "location": "Pattee",
+        "capacity": 2,
+        "times": {
+            "open_time": "07:45",
+            "close_time": "12:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+            ]
+        },
+        "popular_times": [],
+        "type": "indoor",
+        "available_tech": [
+            "Whiteboard"
+        ],
+        "space": "collaborative",
+        "description": "Library room",
+        "food_available": false,
+        "rating": 3.5,
+        "reviews": [],
+        "images": [
+            "W026_1.png",
+            "W026_2.png",
+            "W026_3.png"
+        ],
+        "latitude": 40.79823597312716,
+        "longitude": -77.86589340022368
+    },
+    {
+        "id": 5,
+        "name": "W101A - Leisure Reading Room",
+        "location": "Pattee",
+        "capacity": 8,
+        "times": {
+            "open_time": "07:45",
+            "close_time": "12:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+            ]
+        },
+        "popular_times": [],
+        "type": "indoor",
+        "available_tech": [
+            "Whiteboard",
+            "Monitor"
+        ],
+        "space": "self",
+        "description": "Library reading room",
+        "food_available": false,
+        "rating": 4,
+        "reviews": [
+            "A really nice quiet reading place"
+        ],
+        "images": [
+            "W101A_1.png",
+            "W101A_2.png",
+            "W101A_3.png"
+        ],
+        "latitude": 40.79823597312716,
+        "longitude": -77.86589340022368
+    },
+    {
+        "id": 6,
+        "name": "W102A - Sidewater Commons",
+        "location": "Pattee",
+        "capacity": 4,
+        "times": {
+            "open_time": "07:45",
+            "close_time": "12:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "08:30",
+                "end_time": "10:30"
+            }
+        ],
+        "type": "indoor",
+        "available_tech": [
+            "Whiteboard",
+            "Monitor",
+            "TV"
+        ],
+        "space": "self",
+        "description": "Library room",
+        "food_available": false,
+        "rating": 3,
+        "reviews": [
+            "Not a very well-lit and air ventilated room, but good otherwise"
+        ],
+        "images": [
+            "W102A_1.png",
+            "W102A_2.png",
+            "W102A_3.png"
+        ],
+        "latitude": 40.79823597312716,
+        "longitude": -77.86589340022368
+    },
+    {
+        "id": 7,
+        "name": "W120 - Knowledge Commons",
+        "location": "Pattee",
+        "capacity": 12,
+        "times": {
+            "open_time": "07:45",
+            "close_time": "12:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "08:00",
+                "end_time": "10:30"
+            },
+            {
+                "start_time": "11:15",
+                "end_time": "19:30"
+            },
+            {
+                "start_time": "21:15",
+                "end_time": "23:00"
+            }
+        ],
+        "type": "indoor",
+        "available_tech": [
+            "Whiteboard",
+            "Monitor",
+            "TV",
+            "Projector"
+        ],
+        "space": "self",
+        "description": "Library room",
+        "food_available": false,
+        "rating": 5,
+        "reviews": [
+            "Just lovely to sit and study!",
+            "Good to sit with friends and just hang out, chill and relax",
+            "Pure HEAVEN",
+            "Amazing for exam study"
+        ],
+        "images": [
+            "W120_1.png",
+            "W120_2.png",
+            "W120_3.png"
+        ],
+        "latitude": 40.79823597312716,
+        "longitude": -77.86589340022368
+    },
+    {
+        "id": 8,
+        "name": "Stuckeman 117",
+        "location": "Architecture and Landscape Architecture",
+        "capacity": 11,
+        "times": {
+            "open_time": "08:00",
+            "close_time": "22:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "11:00",
+                "end_time": "20:30"
+            }
+        ],
+        "type": "indoor",
+        "available_tech": [
+            "Whiteboard",
+            "Monitor"
+        ],
+        "space": "self",
+        "description": "Library room",
+        "food_available": false,
+        "rating": 3.5,
+        "reviews": [],
+        "images": [
+            "117_1.png"
+        ],
+        "latitude": 40.80159357394938,
+        "longitude": -77.86713948465523
+    },
+    {
+        "id": 9,
+        "name": "Hammond 331",
+        "location": "Engineering Library",
+        "capacity": 8,
+        "times": {
+            "open_time": "09:00",
+            "close_time": "21:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+            ]
+        },
+        "popular_times": [],
+        "type": "indoor",
+        "available_tech": [],
+        "space": "self",
+        "description": "Library room",
+        "food_available": false,
+        "rating": 2.5,
+        "reviews": [
+            "No utilities available i.e. whiteboard, TV, etc."
+        ],
+        "images": [
+            "331_1.png",
+            "331_2.png",
+            "331_3.png",
+            "331_4.png",
+            "331_5.png"
+        ],
+        "latitude": 40.793384386782826,
+        "longitude": -77.86385438993528
+    },
+    {
+        "id": 10,
+        "name": "105A",
+        "location": "Deike",
+        "capacity": 6,
+        "times": {
+            "open_time": "08:00",
+            "close_time": "23:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "08:00",
+                "end_time": "10:00"
+            },
+            {
+                "start_time": "10:30",
+                "end_time": "12:00"
+            },
+            {
+                "start_time": "13:15",
+                "end_time": "16:00"
+            },
+            {
+                "start_time": "18:00",
+                "end_time": "21:30"
+            }
+        ],
+        "type": "indoor",
+        "available_tech": [
+            "Whiteboard",
+            "Projector",
+            "HDMI Cable"
+        ],
+        "space": "self",
+        "description": "Study room",
+        "food_available": true,
+        "rating": 4,
+        "reviews": [
+            "Close to downtown, so easily accessible"
+        ],
+        "images": [
+            "105A_1.png",
+            "105A_2.png",
+            "105A_3.png"
+        ],
+        "latitude": 40.79456468288399,
+        "longitude": -77.86539285739237
+    },
+    {
+        "id": 11,
+        "name": "114B",
+        "location": "Deike",
+        "capacity": 6,
+        "times": {
+            "open_time": "08:00",
+            "close_time": "23:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+            ]
+        },
+        "popular_times": [],
+        "type": "indoor",
+        "available_tech": [
+            "Whiteboard",
+            "Projector",
+            "HDMI Cable",
+            "Monitor"
+        ],
+        "space": "self",
+        "description": "Study room",
+        "food_available": true,
+        "rating": 4,
+        "reviews": [],
+        "images": [
+            "114B_1.png",
+            "114B_2.png",
+            "114B_3.png"
+        ],
+        "latitude": 40.79456468288399,
+        "longitude": -77.86539285739237
+    },
+    {
+        "id": 12,
+        "name": "113C",
+        "location": "Deike",
+        "capacity": 6,
+        "times": {
+            "open_time": "08:00",
+            "close_time": "23:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+            ]
+        },
+        "popular_times": [],
+        "type": "indoor",
+        "available_tech": [
+            "Whiteboard",
+            "Projector",
+            "HDMI Cable",
+            "Monitor"
+        ],
+        "space": "self",
+        "description": "Study room",
+        "food_available": false,
+        "rating": 4,
+        "reviews": [
+            "Good enough for 2 people to sit and work together"
+        ],
+        "images": [
+            "113C_1.png",
+            "113C_2.png",
+            "113C_3.png"
+        ],
+        "latitude": 40.79456468288399,
+        "longitude": -77.86539285739237
+    },
+    {
+        "id": 13,
+        "name": "113D",
+        "location": "Deike",
+        "capacity": 6,
+        "times": {
+            "open_time": "08:00",
+            "close_time": "23:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+            ]
+        },
+        "popular_times": [],
+        "type": "indoor",
+        "available_tech": [
+            "Whiteboard",
+            "Monitor"
+        ],
+        "space": "self",
+        "description": "Study room",
+        "food_available": false,
+        "rating": 4.5,
+        "reviews": [
+            "Nice ambience!"
+        ],
+        "images": [
+            "113D_1.png",
+            "113D_2.png",
+            "113D_3.png"
+        ],
+        "latitude": 40.79456468288399,
+        "longitude": -77.86539285739237
+    },
+    {
+        "id": 14,
+        "name": "Davey 204",
+        "location": "Physics and Mathematical Sciences",
+        "capacity": 6,
+        "times": {
+            "open_time": "11:00",
+            "close_time": "17:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+            ]
+        },
+        "popular_times": [],
+        "type": "indoor",
+        "available_tech": [
+            "Whiteboard"
+        ],
+        "space": "self",
+        "description": "Study room",
+        "food_available": false,
+        "rating": 3.5,
+        "reviews": [
+            "Only whiteboard is available, not even a monitor to work on"
+        ],
+        "images": [
+            "204_1.png",
+            "204_2.png",
+            "204_3.png"
+        ],
+        "latitude": 40.798513797947564,
+        "longitude": -77.86305083040943
+    },
+    {
+        "id": 15,
+        "name": "Davey Collaboration Space 1",
+        "location": "Physics and Mathematical Sciences",
+        "capacity": 6,
+        "times": {
+            "open_time": "11:00",
+            "close_time": "17:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "12:00",
+                "end_time": "15:00"
+            }
+        ],
+        "type": "indoor",
+        "available_tech": [
+            "Whiteboard",
+            "Projector",
+            "HDMI Cable"
+        ],
+        "space": "collaborative",
+        "description": "Collaboration room",
+        "food_available": true,
+        "rating": 5,
+        "reviews": [
+            "Good utilities available!"
+        ],
+        "images": [
+            "Davey1_1.png",
+            "Davey1_2.png",
+            "Davey1_3.png"
+        ],
+        "latitude": 40.798513797947564,
+        "longitude": -77.86305083040943
+    },
+    {
+        "id": 16,
+        "name": "Davey Collaboration Space 2",
+        "location": "Physics and Mathematical Sciences",
+        "capacity": 6,
+        "times": {
+            "open_time": "11:00",
+            "close_time": "17:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "12:00",
+                "end_time": "16:30"
+            }
+        ],
+        "type": "indoor",
+        "available_tech": [
+            "Whiteboard",
+            "Projector",
+            "HDMI Cable"
+        ],
+        "space": "collaborative",
+        "description": "Collaboration room",
+        "food_available": true,
+        "rating": 5,
+        "reviews": [
+            "Good utilities available!",
+            "Nice place for group study"
+        ],
+        "images": [
+            "Davey2_1.png",
+            "Davey2_2.png",
+            "Davey2_3.png"
+        ],
+        "latitude": 40.798513797947564,
+        "longitude": -77.86305083040943
+    },
+    {
+        "id": 17,
+        "name": "Westgate Passage",
+        "location": "Westgate",
+        "capacity": 25,
+        "times": {
+            "open_time": "00:00",
+            "close_time": "00:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "08:00",
+                "end_time": "22:00"
+            }
+        ],
+        "type": "outdoor",
+        "available_tech": [],
+        "space": "collaborative",
+        "description": "Open space",
+        "food_available": true,
+        "rating": 4,
+        "reviews": [
+            "Nice view overlooking the Atherton Street"
+        ],
+        "images": [
+            "WestgateP_1.png",
+            "WestgateP_2.png",
+            "WestgateP_3.png"
+        ],
+        "latitude": 40.79399090530937,
+        "longitude": -77.86765753040959
+    },
+    {
+        "id": 18,
+        "name": "Westgate Front",
+        "location": "Westgate",
+        "capacity": 20,
+        "times": {
+            "open_time": "00:00",
+            "close_time": "00:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "10:00",
+                "end_time": "17:00"
+            }
+        ],
+        "type": "outdoor",
+        "available_tech": [],
+        "space": "collaborative",
+        "description": "Open space",
+        "food_available": false,
+        "rating": 3.5,
+        "reviews": [],
+        "images": [
+            "WestgateO_1.png",
+            "WestgateO_2.png",
+            "WestgateO_3.png"
+        ],
+        "latitude": 40.79399090530937,
+        "longitude": -77.86765753040959
+    },
+    {
+        "id": 19,
+        "name": "Kern Outdoors",
+        "location": "Kern",
+        "capacity": 30,
+        "times": {
+            "open_time": "00:00",
+            "close_time": "00:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "12:00",
+                "end_time": "16:00"
+            }
+        ],
+        "type": "outdoor",
+        "available_tech": [],
+        "space": "collaborative",
+        "description": "Open space",
+        "food_available": true,
+        "rating": 4.5,
+        "reviews": [],
+        "images": [
+            "Kern_1.png",
+            "Kern_2.png",
+            "Kern_3.png"
+        ],
+        "latitude": 40.79743768726889,
+        "longitude": -77.86835027273702
+    },
+    {
+        "id": 20,
+        "name": "Creamery Benches",
+        "location": "Creamery",
+        "capacity": 15,
+        "times": {
+            "open_time": "00:00",
+            "close_time": "00:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "10:00",
+                "end_time": "17:00"
+            },
+            {
+                "start_time": "19:00",
+                "end_time": "21:00"
+            }
+        ],
+        "type": "outdoor",
+        "available_tech": [],
+        "space": "collaborative",
+        "description": "Open space",
+        "food_available": true,
+        "rating": 5,
+        "reviews": [
+            "Really nice ice-cream available!"
+        ],
+        "images": [
+            "Creamery_1.png",
+            "Creamery_2.png",
+            "Creamery_3.png"
+        ],
+        "latitude": 40.803798170260855,
+        "longitude": -77.86241944575407
+    },
+    {
+        "id": 21,
+        "name": "HUB Lounge",
+        "location": "HUB",
+        "capacity": 30,
+        "times": {
+            "open_time": "00:00",
+            "close_time": "00:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "10:00",
+                "end_time": "17:00"
+            },
+            {
+                "start_time": "19:00",
+                "end_time": "21:00"
+            },
+            {
+                "start_time": "22:00",
+                "end_time": "02:30"
+            }
+        ],
+        "type": "indoor",
+        "available_tech": [],
+        "space": "collaborative",
+        "description": "Open space",
+        "food_available": true,
+        "rating": 5,
+        "reviews": [
+            "Very comfortable to sit and relax, love the vibe"
+        ],
+        "images": [
+            "HUBLo.png",
+            "HUBLo_2.png",
+            "HUBLo_3.png"
+        ],
+        "latitude": 40.798317526671966,
+        "longitude": -77.86131858993518
+    },
+    {
+        "id": 23,
+        "name": "HUB Auditorium",
+        "location": "HUB",
+        "capacity": 150,
+        "times": {
+            "open_time": "00:00",
+            "close_time": "00:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+            ]
+        },
+        "popular_times": [],
+        "type": "indoor",
+        "available_tech": [],
+        "space": "collaborative",
+        "description": "Open space",
+        "food_available": false,
+        "rating": 4.5,
+        "reviews": [
+            "Useful for large gatherings and events"
+        ],
+        "images": [
+            "HUBA.png",
+            "HUBA_2.png",
+            "HUBA_3.png"
+        ],
+        "latitude": 40.798317526671966,
+        "longitude": -77.86131858993518
+    },
+    {
+        "id": 24,
+        "name": "HUB Lawn",
+        "location": "HUB",
+        "capacity": 50,
+        "times": {
+            "open_time": "00:00",
+            "close_time": "00:00",
+            "days": [
+                "Mon",
+                "Tue",
+                "Wed",
+                "Thu",
+                "Fri",
+                "Sat",
+                "Sun"
+            ]
+        },
+        "popular_times": [
+            {
+                "start_time": "10:00",
+                "end_time": "17:00"
+            },
+            {
+                "start_time": "19:00",
+                "end_time": "21:00"
+            }
+        ],
+        "type": "outdoor",
+        "available_tech": [],
+        "space": "collaborative",
+        "description": "Open space",
+        "food_available": true,
+        "rating": 4,
+        "reviews": [
+            "Amazing during good weather but not a place to be at during cold and rains",
+            "Liked it very much :)",
+            "Close to Old Main and Downtown for food and shopping"
+        ],
+        "images": [
+            "HUBLa.png",
+            "HUBLa_2.png",
+            "HUBLa_3.png"
+        ],
+        "latitude": 40.798317526671966,
+        "longitude": -77.86131858993518
+    }
+]
